@@ -39,14 +39,19 @@
     height: 50px;
     line-height: 50px;
   }
-   
+  
+  .today {
+    color: red;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+  }
 
   </style>
 <body>
 <h1>萬年曆</h1>
 <?php
 /*請在這裹撰寫你的萬年曆程式碼*/  
-$month=6; //月份
+$month=5; //月份
 $firstDay=date("Y-") . $month . "-1"; //月份第一天
 $firstDaySecond=strtotime($firstDay); //月份第一天轉秒
 $monthDay=date('t',$firstDaySecond); //月份天數
@@ -98,13 +103,17 @@ echo "<div class='table_hd'>" . "FRI" ."</div>";
 echo "<div class='table_hd'>" . "SAT" ."</div>";
 
 
-
 foreach($allDay as $day) {
+  $checktoday="";
+  $today=date('Y-m-d');
+  if($day == $today) {
+    $checktoday="today";
+  }
 
   if(!empty($day)){
 
     $dateFont=date('d',strtotime($day));
-    echo "<div>{$dateFont}</div>";
+    echo "<div class='$checktoday'>{$dateFont}</div>";
 
   }else {
     echo "<div></div>";
