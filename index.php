@@ -4,7 +4,17 @@
    /*請在這裹撰寫你的CSS*/ 
   * {
     box-sizing: border-box;
+    
+  }
 
+  .calendar {
+    display: flex;
+    justify-content: center;
+  }
+
+  .month_block {
+    width: 300px;
+    border: 1px solid lightgray;
   }
 
   .table {
@@ -12,8 +22,8 @@
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
-    margin: 10px auto;
     text-align: center;
+    margin-top: 1px;
   }
 
   .table>div {
@@ -67,6 +77,13 @@ for($i=0 ; $i<6-$lasttDayWeek ;$i++){
 // print_r($allDay);
 // echo "</pre>";
 
+echo "<div class='calendar'>";
+
+echo "<div class='month_block'>";
+
+echo "test";
+
+echo "</div>";
 
 echo "<div class='table'>";
 
@@ -83,6 +100,9 @@ echo "<div class='table_hd'>" . "SAT" ."</div>";
 foreach($allDay as $day) {
   echo "<div>{$day}</div>";
 }
+
+echo "</div>";
+
 
 echo "</div>";
 
