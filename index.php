@@ -5,6 +5,19 @@
   * {
     box-sizing: border-box;
     overflow: hidden;
+    margin: 0;
+  }
+
+  body {
+    background-image: url(https://cdn.pixabay.com/photo/2013/02/21/19/06/drink-84533_960_720.jpg);
+    background-size: cover;
+    backdrop-filter: blur(5px);
+
+  }
+
+  h1 {
+    text-align: center;
+    margin: 40px auto;
   }
 
   .calendar {
@@ -17,14 +30,14 @@
     background-size: cover;
     background-position: top;
     border-radius: 25px;
-    box-shadow: 5px 5px 30px lightgray;
+    box-shadow: 10px 10px 40px gray;
   }
 
   .left {
     width: 300px;
     /* border: 1px solid lightgray; */
-    background-image: linear-gradient(to top, #4481eb 0%, #04befe 100%);
-    opacity: 0.3;
+    background-image: linear-gradient(to top, rgba(68, 129, 235, 0.2) 0%, rgba(4, 190, 254, 0.2) 100%);
+    /* opacity: 0.3; */
     /* backdrop-filter: blur(5px); */
     display: flex;
     flex-direction: column;
@@ -47,8 +60,8 @@
   .right {
     width: 100px;
     /* border: 1px solid lightgray; */
-    background-image: linear-gradient(to top, #4481eb 0%, #04befe 100%);
-    opacity: 0.3;
+    background-image: linear-gradient(to top, rgba(68, 129, 235, 0.2) 0%, rgba(4, 190, 254, 0.2) 100%);
+    /* opacity: 0.3; */
     
   }
 
@@ -62,7 +75,7 @@
   }
 
   .table {
-    width: 700px;
+    width: 630px;
     display: flex;
     flex-wrap: wrap;
     /* align-items: flex-start; */
@@ -72,12 +85,12 @@
   }
 
   .table>div {
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     /* border: 1px solid lightgray; */
     margin-left: -1px;
     margin-top: -1px;
-    line-height: 100px;
+    line-height: 90px;
   }
 
   .table>.table_month {
