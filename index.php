@@ -25,6 +25,7 @@
     /* border: 1px solid lightgray; */
     background-image: linear-gradient(to top, #4481eb 0%, #04befe 100%);
     opacity: 0.3;
+    /* backdrop-filter: blur(5px); */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -57,7 +58,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
+    backdrop-filter: blur(5px);
   }
 
   .table {
@@ -67,6 +68,7 @@
     /* align-items: flex-start; */
     text-align: center;
     margin-top: 1px;
+    text-shadow: 1px 1px 5px lightgray;
   }
 
   .table>div {
@@ -82,6 +84,14 @@
     width: 100%;
     height: 50px;
     line-height: 50px;
+    font-size: 28px;
+    margin: 10px auto;
+  }
+
+  .table>.table_year {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
     font-size: 32px;
     margin: 10px auto;
   }
@@ -89,6 +99,8 @@
   .table>.table_hd {
     height: 50px;
     line-height: 50px;
+    border-bottom: 1px solid black;
+    font-weight: bold;
   }
   
   .today {
@@ -111,6 +123,7 @@ $lastDaySecond=strtotime($lastDay); //月份最後一天轉秒
 $firstDayWeek=date('w',$firstDaySecond); //第一天星期幾
 $lasttDayWeek=date('w',$lastDaySecond); //最後一天星期幾
 $monthFont=date('F',$firstDaySecond); //月份英文
+$yearFont=date('Y',$firstDaySecond); //月份的年
 
 $allDay=[]; //要放所有天數的空陣列
 
@@ -152,6 +165,7 @@ echo "<div class='center'>";
 echo "<div class='table'>";
 
 
+echo "<div class='table_year'>" . "$yearFont" ."</div>";
 
 echo "<div class='table_month'>" . "$monthFont" ."</div>";
 
