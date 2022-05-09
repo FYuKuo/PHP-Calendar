@@ -23,9 +23,13 @@ for($i=0 ; $i<$monthDay ; $i++) {
   $allDay[]=$date;
 }
 
-echo "<pre>";
-print_r($allDay);
-echo "</pre>";
+// echo "<pre>";
+// print_r($allDay);
+// echo "</pre>";
+
+foreach($allDay as $day) {
+  echo "<div>{$day}</div>";
+}
 
 
 
