@@ -4,24 +4,51 @@
    /*請在這裹撰寫你的CSS*/ 
   * {
     box-sizing: border-box;
-    
+    overflow: hidden;
   }
 
   .calendar {
+    width: 1400px;
     display: flex;
     justify-content: center;
+    margin: 0 auto;
+    background: url(https://cdn.pixabay.com/photo/2020/07/20/08/04/beach-5422214_960_720.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 25px;
+    box-shadow: 5px 5px 30px lightgray;
   }
 
   .left {
     width: 300px;
-    border: 1px solid lightgray;
+    /* border: 1px solid lightgray; */
+    background-image: linear-gradient(to top, #4481eb 0%, #04befe 100%);
+    opacity: 0.3;
+  }
+
+  .right {
+    width: 100px;
+    /* border: 1px solid lightgray; */
+    background-image: linear-gradient(to top, #4481eb 0%, #04befe 100%);
+    opacity: 0.3;
+    
+  }
+
+  .center {
+    /* background-image: linear-gradient(to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%); */
+    width: 1000px;
+    height: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
   }
 
   .table {
     width: 700px;
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-start;
+    /* align-items: flex-start; */
     text-align: center;
     margin-top: 1px;
   }
@@ -29,7 +56,7 @@
   .table>div {
     width: 100px;
     height: 100px;
-    border: 1px solid lightgray;
+    /* border: 1px solid lightgray; */
     margin-left: -1px;
     margin-top: -1px;
     line-height: 100px;
@@ -91,6 +118,7 @@ echo "test";
 echo "</div>";
 
 
+echo "<div class='center'>";
 
 echo "<div class='table'>";
 
@@ -122,6 +150,14 @@ foreach($allDay as $day) {
 
 echo "</div>";
 
+
+echo "</div>";
+
+echo "<div class='right'>";
+
+echo "test";
+
+echo "</div>";
 
 echo "</div>";
 
