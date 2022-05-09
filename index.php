@@ -2,7 +2,28 @@
   <title>萬年曆作業</title>
   <style>
    /*請在這裹撰寫你的CSS*/ 
-    
+  * {
+    box-sizing: border-box;
+
+  }
+
+  .table {
+    width: 700px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin: 10px auto;
+  }
+
+  .table>div {
+    width: 100px;
+    height: 100px;
+    border: 1px solid lightgray;
+    margin-left: -1px;
+    margin-top: -1px;
+  }
+   
+
   </style>
 <body>
 <h1>萬年曆</h1>
@@ -27,9 +48,14 @@ for($i=0 ; $i<$monthDay ; $i++) {
 // print_r($allDay);
 // echo "</pre>";
 
+
+echo "<div class='table'>";
+
 foreach($allDay as $day) {
   echo "<div>{$day}</div>";
 }
+
+echo "</div>";
 
 
 
