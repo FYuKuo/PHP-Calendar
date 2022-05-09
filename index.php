@@ -12,7 +12,7 @@
     justify-content: center;
   }
 
-  .month_block {
+  .left {
     width: 300px;
     border: 1px solid lightgray;
   }
@@ -79,11 +79,13 @@ for($i=0 ; $i<6-$lasttDayWeek ;$i++){
 
 echo "<div class='calendar'>";
 
-echo "<div class='month_block'>";
+echo "<div class='left'>";
 
 echo "test";
 
 echo "</div>";
+
+
 
 echo "<div class='table'>";
 
@@ -98,7 +100,15 @@ echo "<div class='table_hd'>" . "SAT" ."</div>";
 
 
 foreach($allDay as $day) {
-  echo "<div>{$day}</div>";
+
+  if(!empty($day)){
+
+    $dateFont=date('d',strtotime($day));
+    echo "<div>{$dateFont}</div>";
+
+  }else {
+    echo "<div></div>";
+  }
 }
 
 echo "</div>";
