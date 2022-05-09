@@ -17,6 +17,18 @@ $lastDaySecond=strtotime($lastDay); //月份最後一天轉秒
 $firstDayWeek=date('w',$firstDaySecond); //第一天星期幾
 $lasttDayWeek=date('w',$lastDaySecond); //最後一天星期幾
 
+$allDay=[]; //要放所有天數的空陣列
+for($i=0 ; $i<$monthDay ; $i++) {
+  $date=date('Y-m-d',strtotime("+$i days",$firstDaySecond));
+  $allDay[]=$date;
+}
+
+echo "<pre>";
+print_r($allDay);
+echo "</pre>";
+
+
+
   
 ?>
   
