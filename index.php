@@ -9,12 +9,13 @@
 
   .calendar {
     width: 1400px;
+    height: 800px;
     display: flex;
     justify-content: center;
     margin: 0 auto;
     background: url(https://cdn.pixabay.com/photo/2020/07/20/08/04/beach-5422214_960_720.jpg) no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: top;
     border-radius: 25px;
     box-shadow: 5px 5px 30px lightgray;
   }
@@ -24,6 +25,22 @@
     /* border: 1px solid lightgray; */
     background-image: linear-gradient(to top, #4481eb 0%, #04befe 100%);
     opacity: 0.3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .todayFont {
+    font-size: 72px;
+    margin: 5px auto;
+    color: white;
+  }
+
+  .todayWeek {
+    font-size: 24px;
+    margin: 5px auto;
+    color: white;
   }
 
   .right {
@@ -37,7 +54,6 @@
   .center {
     /* background-image: linear-gradient(to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%); */
     width: 1000px;
-    height: 700px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -60,6 +76,14 @@
     margin-left: -1px;
     margin-top: -1px;
     line-height: 100px;
+  }
+
+  .table>.table_month {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    font-size: 32px;
+    margin: 10px auto;
   }
 
   .table>.table_hd {
@@ -86,6 +110,7 @@ $lastDay=date('Y-') . $month . "-" . $monthDay; //月份最後一天
 $lastDaySecond=strtotime($lastDay); //月份最後一天轉秒
 $firstDayWeek=date('w',$firstDaySecond); //第一天星期幾
 $lasttDayWeek=date('w',$lastDaySecond); //最後一天星期幾
+$monthFont=date('F',$firstDaySecond); //月份英文
 
 $allDay=[]; //要放所有天數的空陣列
 
@@ -108,12 +133,16 @@ for($i=0 ; $i<6-$lasttDayWeek ;$i++){
 // echo "<pre>";
 // print_r($allDay);
 // echo "</pre>";
+$today=date('Y-m-d');
+$todayWeek=date('l',strtotime($today));
+$todayFont=date('d',strtotime($today));
 
 echo "<div class='calendar'>";
 
 echo "<div class='left'>";
 
-echo "test";
+echo "<div class='todayFont'>" . $todayFont . "</div>";
+echo "<div class='todayWeek'>" . $todayWeek . "</div>";
 
 echo "</div>";
 
@@ -121,6 +150,11 @@ echo "</div>";
 echo "<div class='center'>";
 
 echo "<div class='table'>";
+
+
+
+echo "<div class='table_month'>" . "$monthFont" ."</div>";
+
 
 echo "<div class='table_hd'>" . "SUN" ."</div>";
 echo "<div class='table_hd'>" . "MON" ."</div>";
@@ -133,7 +167,6 @@ echo "<div class='table_hd'>" . "SAT" ."</div>";
 
 foreach($allDay as $day) {
   $checktoday="";
-  $today=date('Y-m-d');
   if($day == $today) {
     $checktoday="today";
   }
@@ -147,6 +180,7 @@ foreach($allDay as $day) {
     echo "<div></div>";
   }
 }
+
 
 echo "</div>";
 
