@@ -10,7 +10,6 @@
 <!-- css檔案引入 -->
 <link rel="stylesheet" href="./style.css">
 
-
 <body>
   <h1>FY萬年曆</h1>
   <?php
@@ -181,6 +180,8 @@
       </div>
     </div>
   </div>
+
+<script src="./date.js"></script>
 
 </body>
 <html>
