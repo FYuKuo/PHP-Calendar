@@ -1,5 +1,13 @@
 <html>
 <title>萬年曆作業</title>
+
+<!-- goole字體引入 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,700&display=swap" rel="stylesheet">
+<!-- goole字體引入結束 -->
+
+<!-- css檔案引入 -->
 <link rel="stylesheet" href="./style.css">
 
 
@@ -27,10 +35,10 @@
   $lastYear = $year - 1;
   $nextYear = $year + 1;
 
-  $firstDay = date("Y-") . $month . "-1"; //月份第一天
+  $firstDay = $year . "-" . $month . "-1"; //月份第一天
   $firstDaySecond = strtotime($firstDay); //月份第一天轉秒
   $monthDay = date('t', $firstDaySecond); //月份天數
-  $lastDay = date('Y-') . $month . "-" . $monthDay; //月份最後一天
+  $lastDay = $year . "-" . $month . "-" . $monthDay; //月份最後一天
   $lastDaySecond = strtotime($lastDay); //月份最後一天轉秒
   $firstDayWeek = date('w', $firstDaySecond); //第一天星期幾
   $lasttDayWeek = date('w', $lastDaySecond); //最後一天星期幾
