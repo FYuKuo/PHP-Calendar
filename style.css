@@ -4,12 +4,7 @@
     margin: 0;
   }
 
-  body {
-    background-image: url(https://cdn.pixabay.com/photo/2013/02/21/19/06/drink-84533_960_720.jpg);
-    background-size: cover;
-    backdrop-filter: blur(5px);
 
-  }
 
   h1 {
     text-align: center;
@@ -22,19 +17,14 @@
     display: flex;
     justify-content: center;
     margin: 0 auto;
-    background: url(https://cdn.pixabay.com/photo/2020/07/20/08/04/beach-5422214_960_720.jpg) no-repeat;
-    background-size: cover;
-    background-position: top;
+
     border-radius: 25px;
     box-shadow: 10px 10px 40px gray;
   }
 
   .left {
     width: 300px;
-    /* border: 1px solid lightgray; */
-    background-image: linear-gradient(to top, rgba(68, 129, 235, 0.2) 0%, rgba(4, 190, 254, 0.2) 100%);
-    /* opacity: 0.3; */
-    /* backdrop-filter: blur(5px); */
+
     display: flex;
     flex-direction: column;
     justify-content: center;
