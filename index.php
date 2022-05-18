@@ -12,7 +12,7 @@
 
 
 <body>
-  <h1>萬年曆</h1>
+  <h1>FY萬年曆</h1>
   <?php
   /*請在這裹撰寫你的萬年曆程式碼*/
 
@@ -65,9 +65,10 @@
   //所有月份的英文陣列,並設定索引從1開始
   $allMonth = ['1' => 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
+  //今天
   $today = date('Y-m-d');
-  $todayWeek = date('l', strtotime($today));
-  $todayFont = date('d', strtotime($today));
+  $todayWeek = date('l', strtotime($today)); //今天星期幾
+  $todayFont = date('d', strtotime($today)); //今天的日
   ?>
 
   <!-- 整個月曆外框 -->
@@ -83,11 +84,13 @@
       <!-- 左半邊的中間 -->
       <div class="left_content">
 
+        <!-- 左半邊顯示日期的區塊 -->
         <div class="con_date" id="con_date_id">
           <?= $todayFont ?>
         </div>
-
-
+        
+        
+        <!-- 左半邊顯示星期的區塊 -->
         <div class="con_week" id="con_week_id">
           <?= $todayWeek ?>
         </div>
@@ -102,10 +105,10 @@
     <!-- 月曆的右半邊 -->
     <div class="right">
 
-      <!-- 日期格子區 -->
+      <!-- 格子區 -->
       <div class="table">
 
-        <!-- 日期區的最上面 選擇年分 -->
+        <!-- 格子區的最上面 選擇年分 -->
         <div class="header_year">
 
           <!-- 前一年 -->
@@ -124,7 +127,7 @@
           </div>
         </div>
 
-        <!-- 日期區選擇月份 -->
+        <!-- 格子區選擇月份 -->
         <div class="header_month">
           <?php
 
@@ -142,7 +145,7 @@
           ?>
         </div>
 
-        <!-- 日期區的星期 -->
+        <!-- 格子區的星期 -->
         <div class="weekDay">
           <div class="weekend">SUN</div>
           <div class="workDay">MON</div>
@@ -153,6 +156,7 @@
           <div class="weekend">SAT</div>
         </div>
 
+        <!-- 日期區 -->
         <?php
         //利用foreach迴圈印出所有天數
         foreach ($allDay as $day) {
