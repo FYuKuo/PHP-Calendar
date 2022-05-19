@@ -1,14 +1,19 @@
-<html>
-<title>萬年曆作業</title>
-
-<!-- goole字體引入 -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,700&display=swap" rel="stylesheet">
-<!-- goole字體引入結束 -->
-
-<!-- css檔案引入 -->
-<link rel="stylesheet" href="./style.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>萬年曆作業</title>
+  <!-- goole字體引入 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,700&display=swap" rel="stylesheet">
+  <!-- goole字體引入結束 -->
+  
+  <!-- css檔案引入 -->
+  <link rel="stylesheet" href="./style.css">
+</head>
 
 <body>
   <h1>FY萬年曆</h1>
@@ -183,6 +188,7 @@
     </div>
   </div>
 
+  <!-- 新增待辦清單區 先隱藏起來 -->
   <div class="noteFormBG">
     <div class="noteFormFlex">
       <div class="noteForm">
@@ -195,16 +201,26 @@
         <form action="./index.php" method="post">
           <div class="formText">
             <input type="text" name="note" id="noteTitle" placeholder="標題" require>
-            <input type="text" name="note" id="noteText" placeholder="備註" require>
+            <textarea name="noteText" id="noteText" cols="30" rows="10" placeholder="備註" require></textarea>
           </div>
-          <input type="time" name="noteTime" id="noteTime">
-          <button type="submit">儲存</button>
+          <input type="time" name="noteTime" id="noteTime" value="00:00">
+          <button type="submit" id="formBn">儲存</button>
         </form>
       </div>
     </div>
   </div>
 
+  <!-- 點日期的js -->
   <script src="./date.js"></script>
+
+  <!-- 打開新增待辦清單的js -->
+  <script src="./noteForm.js"></script>
+
+  <!-- 關閉重新提交表單 -->
+  <script>
+    window.history.replaceState(null, null, window.location.href);
+  </script>
+
 
 </body>
 <html>
