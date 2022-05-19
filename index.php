@@ -78,7 +78,9 @@
 
       <!-- 左半邊的上半部 -->
       <div class="left_header">
-
+        <div class="left_header_bn" onclick="myFn()">
+          ⨁ 新增
+        </div>
       </div>
       <!-- 左半邊的中間 -->
       <div class="left_content">
@@ -87,8 +89,8 @@
         <div class="con_date" id="con_date_id">
           <?= $todayFont ?>
         </div>
-        
-        
+
+
         <!-- 左半邊顯示星期的區塊 -->
         <div class="con_week" id="con_week_id">
           <?= $todayWeek ?>
@@ -181,7 +183,28 @@
     </div>
   </div>
 
-<script src="./date.js"></script>
+  <div class="noteFormBG">
+    <div class="noteFormFlex">
+      <div class="noteForm">
+        <div class="noteClose" onclick="myClose()">
+          ⨂
+        </div>
+        <div class="noteFormHd">
+          新增待辦事項
+        </div>
+        <form action="./index.php" method="post">
+          <div class="formText">
+            <input type="text" name="note" id="noteTitle" placeholder="標題" require>
+            <input type="text" name="note" id="noteText" placeholder="備註" require>
+          </div>
+          <input type="time" name="noteTime" id="noteTime">
+          <button type="submit">儲存</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="./date.js"></script>
 
 </body>
 <html>
