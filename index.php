@@ -120,24 +120,31 @@
         <div class="left_note_content">
 
           <!-- 代辦區的群組 -->
-          <div class="left_note_group">
+          <div class="left_note_list">
 
-            <div class="left_note_title_group">
-              <div class="left_note_title">
-                123 Lorem ipsum, dolor
-              </div>
-              <div class="left_note_time">
-                12:50
-              </div>
-            </div>
-            <div class="left_note_text">
-              123
-            </div>
 
+            <div class="left_note_del">
+              ⨂
+            </div>
+            <div class="left_note_group"> 
+
+              <div class="left_note_title_group">
+                <div class="left_note_title">
+                  買菜
+                </div>
+                <div class="left_note_time">
+                  12:50
+                </div>
+              </div>
+              <div class="left_note_text">
+                青椒,洋蔥,奇異果
+              </div>
+
+            </div>
           </div>
 
-          
-          
+
+
 
         </div>
       </div>
@@ -233,7 +240,7 @@
         <div class="noteFormHd">
           新增待辦事項
         </div>
-        <form action="./index.php" method="post">
+        <form action="" method="post">
           <div class="formText">
             <input type="text" name="noteTitle" id="noteTitle" placeholder="標題" require>
             <textarea name="noteText" id="noteText" cols="30" rows="10" placeholder="備註" require></textarea>
@@ -250,6 +257,12 @@
 
   <!-- 打開新增待辦清單的js -->
   <script src="./noteForm.js"></script>
+
+  <!-- 加入待辦清單的js -->
+  <script src="./noteAdd.js"></script>
+
+  <!-- 刪除待辦清單的的js -->
+  <script src="./noteDel.js"></script>
 
   <!-- 關閉重新提交表單 -->
   <script>
