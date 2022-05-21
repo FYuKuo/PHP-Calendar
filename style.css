@@ -19,7 +19,6 @@
 }
 .calendar {
     box-shadow: 0 0 20px gray;
-    /* margin: 20px auto; */
     width: 1200px;
     display: flex;
     justify-content: space-around;
@@ -28,15 +27,73 @@
 }
 
 .left{
-    width: 400px;
+    width: 450px;
     height: 800px;
     border-right: 1px solid gray;
-    /* padding: 20px 0; */
+    padding: 0 15px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: flex-start;
 
+}
+
+.left_note {
+    width: 100%;
+    height: 500px;
+}
+
+.left_note_hd {
+    text-align: center;
+    margin: 15px 0;
+    font-size: 20px;
+    font-family: 'Noto Sans TC', sans-serif;
+    letter-spacing: 5px;
+}
+
+.left_note_content {
+    width: 100%;
+    height: 420px;
+    background-color: rgba(255, 218, 218, 0.829);
+    border-radius: 25px;
+    padding: 5px 0;
+    overflow: auto;
+
+}
+
+.left_note_group{
+    width: 90%;
+    /* height: 80px; */
+    background-color: #fff;
+    margin: 5px auto;
+    border-radius: 25px;
+}
+
+.left_note_title_group {
+    border-bottom: 1px solid lightgray;
+    margin: 0 10px;
+    display: flex;
+    height: 50%;
+}
+
+.left_note_title {
+    width: 80%;
+    padding: 8px 10px;
+    font-size: 24px;
+    font-weight: bold;
+    /* line-height: 30px; */
+}
+
+.left_note_time {
+    width: 20%;
+    padding: 8px 10px;
+    font-size: 18px;
+    line-height: 30px;
+}
+
+.left_note_text {
+    /* height: 50%; */
+    width: 100%;
+    padding: 8px 20px;
 }
 
 .left_header{
@@ -44,20 +101,37 @@
     display: flex;
     justify-content: flex-end;
     height: 50px;
+
 }
+
 
 .left_header_bn{
     font-size: 18px;
-    padding: 20px;
+    /* padding: 20px; */
     cursor: pointer;
+    font-family: 'Noto Sans TC', sans-serif;
+    margin: 20px;
+    width: 80px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 30px;
+}
+
+.left_header_bn:hover{
+    background-color: rgba(211, 211, 211, 0.178);
+    background-color: 0 0 8px lightgray;
+    /* color: white; */
 }
 
 .left_content{
     width: 100%;
-    height: 200px;
+    height: 250px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-end;
+
 }
 
 .con_date{

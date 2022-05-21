@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>萬年曆作業</title>
   <!-- goole字體引入 -->
+  <!-- 英文字體 -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,700&display=swap" rel="stylesheet">
+
+  <!-- 思源黑體 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
   <!-- goole字體引入結束 -->
-  
+
   <!-- css檔案引入 -->
   <link rel="stylesheet" href="./style.css">
 </head>
@@ -104,7 +111,35 @@
       </div>
       <!-- 左半邊的下半部 -->
       <div class="left_note">
+        <!-- 待辦區標題 -->
+        <div class="left_note_hd">
+          待辦事項
+        </div>
 
+        <!-- 待辦區整個框 -->
+        <div class="left_note_content">
+
+          <!-- 代辦區的群組 -->
+          <div class="left_note_group">
+
+            <div class="left_note_title_group">
+              <div class="left_note_title">
+                123 Lorem ipsum, dolor
+              </div>
+              <div class="left_note_time">
+                12:50
+              </div>
+            </div>
+            <div class="left_note_text">
+              123
+            </div>
+
+          </div>
+
+          
+          
+
+        </div>
       </div>
     </div>
 
@@ -200,7 +235,7 @@
         </div>
         <form action="./index.php" method="post">
           <div class="formText">
-            <input type="text" name="note" id="noteTitle" placeholder="標題" require>
+            <input type="text" name="noteTitle" id="noteTitle" placeholder="標題" require>
             <textarea name="noteText" id="noteText" cols="30" rows="10" placeholder="備註" require></textarea>
           </div>
           <input type="time" name="noteTime" id="noteTime" value="00:00">
