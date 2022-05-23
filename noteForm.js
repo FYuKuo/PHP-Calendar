@@ -1,4 +1,4 @@
-var bn = document.getElementsByClassName('bn');
+var formBn = document.getElementById('formBn');
 var noteFormBG = document.getElementsByClassName('noteFormBG');
 var noteClose = document.getElementsByClassName('noteClose');
 function myFn(){
@@ -10,3 +10,8 @@ function myClose(){
     noteFormBG[0].style.display="none";
 
 }
+
+formBn.addEventListener('click',function(){
+    noteFormBG[0].style.display="none";
+
+})

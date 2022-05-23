@@ -50,9 +50,8 @@
     width: 15px;
     color: gray;
     margin: 10px;
-    /* display: none; */
     cursor: pointer;
-    font-size: 16px;
+    /* padding-left: 1px; */
 }
 
 .left_note_check{
@@ -61,7 +60,8 @@
     margin: 10px;
     cursor: pointer;
     background-color: white;
-    border: 1px solid lightgrey;
+    border: 2px solid lightgrey;
+    border-radius: 2px;
 }
 
 .left_note {
@@ -93,6 +93,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-size: 18px;
+
 }
 
 .left_note_group{

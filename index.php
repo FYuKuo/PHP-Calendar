@@ -120,7 +120,7 @@
         <div class="left_note_content">
 
           <!-- 代辦區的群組 -->
-          <div class="left_note_list">
+          <!-- <div class="left_note_list">
 
             <div class="left_note_choose">
               <div class="left_note_check">
@@ -144,7 +144,7 @@
               </div>
 
             </div>
-          </div>
+          </div> -->
           <!-- 代辦區的群組 -->
 
 
@@ -262,11 +262,8 @@
   <!-- 打開新增待辦清單的js -->
   <script src="./noteForm.js"></script>
 
-  <!-- 加入待辦清單的js -->
+  <!-- 加入&刪除待辦清單的js -->
   <script src="./noteAdd.js"></script>
-
-  <!-- 刪除待辦清單的的js -->
-  <!-- <script src="./noteDel.js"></script> -->
 
   <!-- 關閉重新提交表單 -->
   <script>

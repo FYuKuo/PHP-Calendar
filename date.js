@@ -1,7 +1,7 @@
 //取得每一個日期區塊
 var dateBG = document.getElementsByClassName("dateBG");
 
-var weekDay = ["SUN","MON","TUE","WED","THU","FRI","SAT"];
+var weekDay = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 
 //月份陣列用來比對抓到的月曆當前月份
 var month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];

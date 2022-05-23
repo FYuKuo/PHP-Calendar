@@ -14,6 +14,7 @@
     //待辦清單用json格式取得localStorage todolist 剛開始沒有資料 所以也建立一個框的陣列[]
     var todoList = JSON.parse(localStorage.getItem('todoList')) || [] ;
 
+    //顯示待辦清單的function
     function updateList(items) {
         str = '';
         var len = items.length;
@@ -50,7 +51,7 @@
         left_note_content[0].innerHTML = str;
       };
 
-
+    //呼叫待辦清單
     updateList(todoList);
     
     
@@ -58,7 +59,6 @@
     myFrom.addEventListener('submit',function (event) {
     //不要讓表單送出去
     event.preventDefault();
-
 
     //取的input的值
     var noteTitleinput = noteTitle.value;
@@ -86,38 +86,43 @@
     updateList(todoList);
 
 
-    //清掉input的值
-    noteTitleinput.value = '';
-    noteTextinput.value = '';
-    noteTimeinput.value = '';
+    //清掉input的值 還有問題要修改!!!!!!!!!!!!!!!!!!!!!!!!!!!!!<===========
+    noteTitle.value = '';
+    noteText.value = '';
     })
 
-    //取得叉叉的元件
+//取得叉叉的元件
 var left_note_del = document.getElementsByClassName('left_note_del');
 
-//取得整個todolist和叉叉的元件
-var left_note_list = document.getElementsByClassName('left_note_list');
+left_note_content[0].addEventListener('click',function(event){
 
+  //如果點擊到的目標元件是叉叉
+  if (event.target.className == 'left_note_del') { 
 
+  //取得叉叉父層的父層也就是list層
+  const note_list = event.target.parentElement.parentElement;
+  
+  //刪除點擊到的note_list
+  note_list.remove();
 
-for(var i = 0; i < left_note_del.length ; i++){
-    left_note_del[i].index= i;
+  var listnum = event.target.parentElement.dataset.listnum;  //定義選到的待辦事項
+  todoList.splice(listnum, 1); 
+  localStorage.setItem('todoList', JSON.stringify(todoList));
+    }
+  //如果點擊到的目標元件是框框 
+  else if (event.target.className == 'left_note_check') { 
+  console.log('點到了');
 
-    left_note_del[i].onclick = function(e){
-    console.log(e.target.nodeName);
+  const note_check=event.target;
+  note_check.innerHTML = '√';
+  const note_group = event.target.parentElement.nextSibling.nextSibling;
+  // console.log(note_group);
+  note_group.style.textDecorationLine = 'line-through';
+  }
 
-    var listnum = e.target.dataset.listnum;  //定義選到的待辦事項
+  
+})
 
-    todoList.splice(listnum, 1); 
-
-    // left_note_list[numThis].remove();
-
-    localStorage.setItem('todoList', JSON.stringify(todoList));
-    // }
-
-
-}
-}
 
     
 })()
