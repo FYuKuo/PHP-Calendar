@@ -53,7 +53,7 @@
   $lastDaySecond = strtotime($lastDay); //月份最後一天轉秒
   $firstDayWeek = date('w', $firstDaySecond); //第一天星期幾
   $lasttDayWeek = date('w', $lastDaySecond); //最後一天星期幾
-  $monthFont = date('F', $firstDaySecond); //月份英文
+  $monthFont = date('M', $firstDaySecond); //月份英文
 
   $allDay = []; //要放所有天數的空陣列
 
@@ -122,9 +122,12 @@
           <!-- 代辦區的群組 -->
           <div class="left_note_list">
 
-
-            <div class="left_note_del">
-              ⨂
+            <div class="left_note_choose">
+              <div class="left_note_check">
+              </div>
+              <div class="left_note_del">
+                ⨂
+              </div>
             </div>
             <div class="left_note_group"> 
 
@@ -142,6 +145,7 @@
 
             </div>
           </div>
+          <!-- 代辦區的群組 -->
 
 
 
@@ -240,7 +244,7 @@
         <div class="noteFormHd">
           新增待辦事項
         </div>
-        <form action="" method="post">
+        <form action="./index.php" method="post" id="myFrom">
           <div class="formText">
             <input type="text" name="noteTitle" id="noteTitle" placeholder="標題" require>
             <textarea name="noteText" id="noteText" cols="30" rows="10" placeholder="備註" require></textarea>
@@ -262,7 +266,7 @@
   <script src="./noteAdd.js"></script>
 
   <!-- 刪除待辦清單的的js -->
-  <script src="./noteDel.js"></script>
+  <!-- <script src="./noteDel.js"></script> -->
 
   <!-- 關閉重新提交表單 -->
   <script>

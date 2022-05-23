@@ -1,6 +1,17 @@
 //取得每一個日期區塊
 var dateBG = document.getElementsByClassName("dateBG");
 
+var weekDay = ["SUN","MON","TUE","WED","THU","FRI","SAT"];
+
+//月份陣列用來比對抓到的月曆當前月份
+var month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+//取得今年的欄位
+var dateYear = Number(document.getElementById('yearNow').textContent);
+//取得本月的欄位
+var dateMonth = document.getElementsByClassName('thisMonth')[0].textContent;
+//跟陣列比較有沒有這個值
+var dateMonthFont = Number((month.indexOf(dateMonth)));
+
 //迴圈把每個按鈕都放上點擊
 for(var i = 0; i < dateBG.length ; i++){
     // dateBG[i].addEventListener('click',myDateFn);
@@ -32,14 +43,4 @@ for(var i = 0; i < dateBG.length ; i++){
 }
 
 
-var weekDay = ["SUN","MON","TUE","WED","THU","FRI","SAT"];
-
-//月份陣列用來比對抓到的月曆當前月份
-var month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-//取得今年的欄位
-var dateYear = Number(document.getElementById('yearNow').textContent);
-//取得本月的欄位
-var dateMonth = document.getElementsByClassName('thisMonth')[0].textContent;
-//跟陣列比較有沒有這個值
-var dateMonthFont = Number((month.indexOf(dateMonth)));
 
