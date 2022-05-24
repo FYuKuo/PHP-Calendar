@@ -88,21 +88,41 @@
 
   <!-- 上選單 -->
   <div class="nav">
+
     <div class="nav_logo">
       <a href="./index.php">FY's Calendar</a>
     </div>
-    <div class="nav_search">
-      <form action="./index.php" method="$_GET" id="form_search">
-        <div class="form_input">
-          <input type="text" name="year" id="nav_year" placeholder="西元年" required>
-          <input type="text" name="month" id="nav_month" placeholder="月份" required>
-        </div>
-        <button type="submit" id="nav_bn"><i class="fa-solid fa-magnifying-glass"></i></button>
-      </form>
+
+    <div class="nav_right">
+
+      <div class="nav_theme">
+
+        <div class="nav_theme_icon"><i class="fa-solid fa-palette"></i></div>
+
+        <select name="theme" id="themeSelect">
+          <option value="colorful">繽紛嘉年華</option>
+          <option value="BandW">黑白新世界</option>
+          <option value="animal">動物遊樂園</option>
+        </select>
+
+      </div>
+
+      <div class="nav_search">
+        <form action="./index.php" method="$_GET" id="form_search">
+          <div class="form_input">
+            <input type="text" name="year" id="nav_year" placeholder="西元年" required>
+            <input type="text" name="month" id="nav_month" placeholder="月份" required>
+          </div>
+          <button type="submit" id="nav_bn"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+      </div>
+      
+      <div class="nav_today">
+        <a href="" title="回到今天">TODAY</a>
+      </div>
+
     </div>
-    <div class="nav_today">
-      <a href="" title="回到今天">TODAY</a>
-    </div>
+
   </div>
 
   <!-- 整個月曆外框 -->
@@ -255,6 +275,10 @@
 
       </div>
     </div>
+  </div>
+
+  <div class="footer">
+    &copy; <?=date('Y')?> FY
   </div>
 
   <!-- 新增待辦清單區 先隱藏起來 -->

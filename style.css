@@ -26,13 +26,14 @@ body {
     display: flex;
     align-items: center;
     padding: 0 25px;
-
+    justify-content: space-between;
 }
 
 .nav_logo {
     font-size: 24px;
     width: 200px;
     text-align: center;
+    justify-self: start;
 }
 
 .nav_logo>a {
@@ -40,10 +41,29 @@ body {
     color: black;
 }
 
-/* .nav_search {
-    cursor: pointer;
+.nav_right {
     display: flex;
-} */
+}
+
+.nav_theme {
+    display: flex;
+    margin: 0 10px;
+}
+
+.nav_theme_icon{
+    margin: 0 10px;
+    line-height: 30px;
+}
+
+select>option {
+    margin: 5px 0;
+    outline: none;
+}
+
+#themeSelect{
+    border: none;
+    padding: 6px 4px;
+}
 
 #form_search{
     flex-direction: row;
@@ -106,6 +126,7 @@ body {
     justify-content: space-around;
     align-items: center;
     border-radius: 25px;
+    align-self: center;
 }
 
 /* 左側 */
@@ -422,6 +443,20 @@ body {
 }
 
 /* 整個行事曆 結束*/
+
+/* footer區 */
+.footer {
+    width: 100%;
+    align-self: flex-end;
+    height: 50px;
+    background-color: rgb(243, 243, 243);
+    text-align: center;
+    line-height: 50px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 1px;
+}
+/* footer區結束 */
 
 /* 待辦事項彈出視窗區 */
 .noteFormBG {
