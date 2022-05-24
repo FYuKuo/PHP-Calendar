@@ -4,21 +4,103 @@
     margin: 0;
   }
 
-  h1 {
-    text-align: center;
-    margin: 25px auto;
-  }
 
-  body {
+body {
     width: 100%;
     height: 1000px;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
 }
+
+/* 上選單 */
+.nav {
+    width: 100%;
+    height: 60px;
+    box-shadow: 0 0 10px lightgray;
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    font-family: 'Josefin Sans', sans-serif;
+    display: flex;
+    align-items: center;
+    padding: 0 25px;
+
+}
+
+.nav_logo {
+    font-size: 24px;
+    width: 200px;
+    text-align: center;
+}
+
+.nav_logo>a {
+    text-decoration: none;
+    color: black;
+}
+
+/* .nav_search {
+    cursor: pointer;
+    display: flex;
+} */
+
+#form_search{
+    flex-direction: row;
+    width: 100%;
+
+}
+
+.form_input{
+    display: none;
+    transition: 2s;
+}
+
+#nav_year {
+    border-bottom: 1px solid gray;
+    width: 100px;
+    margin: 0 5px;
+    padding: 2px 4px;
+    font-size: 14px;
+    
+}
+#nav_month {
+    border-bottom: 1px solid gray;
+    width: 100px;
+    padding: 2px 4px;
+    margin: 0 5px;
+    font-size: 14px;
+
+}
+
+#nav_bn {
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.nav_today{
+    border-radius: 20px;
+    border: 2px solid black;
+    padding: 5px 10px;
+    height: 30px;
+    line-height: 20px;
+    text-align: center;
+    margin: 0 10px;
+}
+
+.nav_today>a {
+    text-decoration: none;
+    color: black;
+}
+
+
+/* 上選單結束 */
+
+/* 整個行事曆 */
 .calendar {
-    box-shadow: 0 0 20px gray;
+    box-shadow: 0 0 20px lightgray;
     width: 1200px;
     display: flex;
     justify-content: space-around;
@@ -26,6 +108,7 @@
     border-radius: 25px;
 }
 
+/* 左側 */
 .left{
     width: 450px;
     height: 800px;
@@ -37,6 +120,31 @@
 
 }
 
+/* 整個左側的下半部 */
+.left_note {
+    width: 100%;
+    height: 570px;
+}
+
+.left_note_hd {
+    text-align: center;
+    margin: 25px 0;
+    font-size: 20px;
+    font-family: 'Noto Sans TC', sans-serif;
+    letter-spacing: 5px;
+}
+/* 待辦事項粉色框 */
+.left_note_content {
+    /* width: 100%; */
+    height: 470px;
+    background-color: rgba(255, 218, 218, 0.829);
+    border-radius: 20px;
+    padding: 5px 0;
+    overflow: auto;
+    box-shadow: 0 0 8px lightgray;
+}
+
+/* 待辦事項白色框 */
 .left_note_list {
     display: flex;
     align-items: center;
@@ -66,29 +174,6 @@
     background-color: white;
     border: 2px solid lightgrey;
     border-radius: 2px;
-}
-
-.left_note {
-    width: 100%;
-    height: 570px;
-}
-
-.left_note_hd {
-    text-align: center;
-    margin: 25px 0;
-    font-size: 20px;
-    font-family: 'Noto Sans TC', sans-serif;
-    letter-spacing: 5px;
-}
-
-.left_note_content {
-    /* width: 100%; */
-    height: 470px;
-    background-color: rgba(255, 218, 218, 0.829);
-    border-radius: 20px;
-    padding: 5px 0;
-    overflow: auto;
-    box-shadow: 0 0 8px lightgray;
 }
 
 .left_note_choose{
@@ -140,7 +225,10 @@
     color: gray;
     font-size: 16px;
 }
+/* 待辦事項區結束 */
 
+
+/* 左側上半部 */
 .left_header{
     width: 100%;
     display: flex;
@@ -148,7 +236,6 @@
     height: 50px;
 
 }
-
 
 .left_header_bn{
     font-size: 18px;
@@ -169,6 +256,7 @@
     /* color: white; */
 }
 
+/* 左側中間日期區 */
 .left_content{
     width: 100%;
     height: 180px;
@@ -191,7 +279,10 @@
     font-weight: bold;
     font-family: 'Josefin Sans', sans-serif;
 }
+/* 左側結束 */
 
+/* 行事曆右側 */
+/* 日期表格區 */
 .table {
     width: 700px;
     height: 800px;
@@ -213,6 +304,7 @@
     align-items: center;
 }
 
+/* 星期區 */
 .table>.weekDay {
     height: 60px;
     line-height: 60px;
@@ -223,12 +315,19 @@
     text-align: center;
     font-weight: bold;
     color: gray;
+    font-family: 'Josefin Sans', sans-serif;
+
 }
 
 .weekDay>div {
     width: 100px;
 }
 
+.weekend {
+    color: rgb(255, 207, 214);;
+}
+
+/* 月份區 */
 .table>.header_month {
     display: flex;
     width: 100%;
@@ -251,6 +350,19 @@
 
 }
 
+.table>.header_month>div>a:hover {
+    font-size: 20px;
+    font-weight: bolder;
+    color: rgb(255, 207, 214);
+}
+
+.table>.header_month>div>a.thisMonth {
+    font-size: 24px;
+    font-weight: bolder;
+    color: lightpink;
+}
+
+/* 年分區 */
 .table>.header_year {
     width: 100%;
     height: 60px;
@@ -276,6 +388,27 @@
     color: rgb(255, 207, 214);
 }
 
+/* 日期格子背景 */
+.dateBG {
+    width: 50px;
+    height: 50px;
+    /* background-color: aqua; */
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer; 
+    border-radius: 50px;
+}
+
+.dateBG:hover{
+    background-color: rgba(211, 211, 211, 0.39);
+}
+
+.dateBG:active{
+    background-color: rgb(255, 214, 220);
+    color: white;
+}
+
+/* 今天日期 */
 .today {
     color: white;
     text-decoration: underline;
@@ -284,45 +417,13 @@
     border-radius: 50px;
 }
 
-
-.table>.header_month>div>a:hover {
-    font-size: 20px;
-    font-weight: bolder;
-    color: rgb(255, 207, 214);
+.today:hover{
+    background-color: lightpink;
 }
 
-.table>.header_month>div>a.thisMonth {
-    font-size: 20px;
-    font-weight: bolder;
-    color: lightpink;
-}
+/* 整個行事曆 結束*/
 
-.dateBG {
-    width: 50px;
-    height: 50px;
-    /* background-color: aqua; */
-    text-align: center;
-    line-height: 50px;
-    cursor: pointer; 
-}
-
-.dateBG:hover{
-    background-color: rgba(211, 211, 211, 0.39);
-    border-radius: 50px;
-}
-
-.dateBG:active{
-    background-color: rgb(255, 214, 220);
-    color: white;
-    border-radius: 50px;
-}
-
-.active{
-    border: 4px solid lightpink;
-    border-radius: 50px;
-
-}
-
+/* 待辦事項彈出視窗區 */
 .noteFormBG {
     position: absolute;
     width: 100%;
@@ -456,3 +557,4 @@ input[type=time] {
     text-align: center;
     cursor: pointer;
 }
+/* 待辦事項彈出視窗區 結束 */

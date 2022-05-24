@@ -18,12 +18,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
   <!-- goole字體引入結束 -->
 
+  <!-- font awesome 引入 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- font awesome 引入結束 -->
+
   <!-- css檔案引入 -->
   <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
-  <h1>FY萬年曆</h1>
+
   <?php
   /*請在這裹撰寫你的萬年曆程式碼*/
 
@@ -81,6 +85,25 @@
   $todayWeek = date('l', strtotime($today)); //今天星期幾
   $todayFont = date('d', strtotime($today)); //今天的日
   ?>
+
+  <!-- 上選單 -->
+  <div class="nav">
+    <div class="nav_logo">
+      <a href="./index.php">FY's Calendar</a>
+    </div>
+    <div class="nav_search">
+      <form action="./index.php" method="$_GET" id="form_search">
+        <div class="form_input">
+          <input type="text" name="year" id="nav_year" placeholder="西元年" required>
+          <input type="text" name="month" id="nav_month" placeholder="月份" required>
+        </div>
+        <button type="submit" id="nav_bn"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </form>
+    </div>
+    <div class="nav_today">
+      <a href="" title="回到今天">TODAY</a>
+    </div>
+  </div>
 
   <!-- 整個月曆外框 -->
   <div class="calendar">
@@ -246,8 +269,8 @@
         </div>
         <form action="./index.php" method="post" id="myFrom">
           <div class="formText">
-            <input type="text" name="noteTitle" id="noteTitle" placeholder="標題" require>
-            <textarea name="noteText" id="noteText" cols="30" rows="10" placeholder="備註" require></textarea>
+            <input type="text" name="noteTitle" id="noteTitle" placeholder="標題" required>
+            <textarea name="noteText" id="noteText" cols="30" rows="10" placeholder="備註"></textarea>
           </div>
           <input type="time" name="noteTime" id="noteTime" value="00:00">
           <button type="submit" id="formBn">儲存</button>
@@ -264,6 +287,8 @@
 
   <!-- 加入&刪除待辦清單的js -->
   <script src="./noteAdd.js"></script>
+
+  <script src="./searchForm.js"></script>
 
   <!-- 關閉重新提交表單 -->
   <script>
