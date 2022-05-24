@@ -46,6 +46,10 @@
     margin: 5px auto;
 }
 
+.left_note_list:hover{
+    box-shadow: 0 0 10px rgb(175, 175, 175);
+}
+
 .left_note_del{
     width: 15px;
     color: gray;
@@ -66,12 +70,12 @@
 
 .left_note {
     width: 100%;
-    height: 500px;
+    height: 570px;
 }
 
 .left_note_hd {
     text-align: center;
-    margin: 15px 0;
+    margin: 25px 0;
     font-size: 20px;
     font-family: 'Noto Sans TC', sans-serif;
     letter-spacing: 5px;
@@ -79,12 +83,12 @@
 
 .left_note_content {
     /* width: 100%; */
-    height: 420px;
+    height: 470px;
     background-color: rgba(255, 218, 218, 0.829);
     border-radius: 20px;
     padding: 5px 0;
     overflow: auto;
-
+    box-shadow: 0 0 8px lightgray;
 }
 
 .left_note_choose{
@@ -101,6 +105,8 @@
     width: 90%;
     /* height: 80px; */
     margin: 5px auto;
+    font-family: 'Noto Sans TC', sans-serif;
+    letter-spacing: 1px;
 }
 
 .left_note_title_group {
@@ -108,14 +114,16 @@
     margin: 0 10px;
     display: flex;
     height: 50%;
+
 }
 
 .left_note_title {
     width: 80%;
     padding: 8px 10px;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: bold;
     /* line-height: 30px; */
+    
 }
 
 .left_note_time {
@@ -129,6 +137,8 @@
     /* height: 50%; */
     width: 100%;
     padding: 8px 20px;
+    color: gray;
+    font-size: 16px;
 }
 
 .left_header{
@@ -161,7 +171,7 @@
 
 .left_content{
     width: 100%;
-    height: 250px;
+    height: 180px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -293,12 +303,18 @@
     /* background-color: aqua; */
     text-align: center;
     line-height: 50px;
+    cursor: pointer; 
 }
 
 .dateBG:hover{
-    border: 3px solid lightpink;
+    background-color: rgba(211, 211, 211, 0.39);
     border-radius: 50px;
-    cursor: pointer; 
+}
+
+.dateBG:active{
+    background-color: rgb(255, 214, 220);
+    color: white;
+    border-radius: 50px;
 }
 
 .active{

@@ -11,8 +11,12 @@
     //待辦清單欄位
     var left_note_content = document.getElementsByClassName('left_note_content');
 
-    //待辦清單用json格式取得localStorage todolist 剛開始沒有資料 所以也建立一個框的陣列[]
-    var todoList = JSON.parse(localStorage.getItem('todoList')) || [] ;
+    //待辦清單用json格式取得localStorage todolist 剛開始沒有資料 所以也建立一個預設值的陣列[]
+    var todoList = JSON.parse(localStorage.getItem('todoList')) || [{
+      title: `買菜`,
+      text: `小黃瓜,青椒,青江菜,醬油`,
+      time: `18:00`,
+      }] ;
 
     //顯示待辦清單的function
     function updateList(items) {
@@ -26,7 +30,7 @@
           <div class="left_note_choose">
             <div class="left_note_check">
             </div>
-            <div class="left_note_del">
+            <div class="left_note_del" data-num=${i}>
               ⨂
             </div>
           </div>
@@ -86,7 +90,7 @@
     updateList(todoList);
 
 
-    //清掉input的值 還有問題要修改!!!!!!!!!!!!!!!!!!!!!!!!!!!!!<===========
+    //清掉input的值
     noteTitle.value = '';
     noteText.value = '';
     })
@@ -105,19 +109,28 @@ left_note_content[0].addEventListener('click',function(event){
   //刪除點擊到的note_list
   note_list.remove();
 
-  var listnum = event.target.parentElement.dataset.listnum;  //定義選到的待辦事項
-  todoList.splice(listnum, 1); 
+  var num = event.target.dataset.num;  //先在叉叉定義一個屬性為data-num 在抓取選到的num
+  //刪掉存在localStorage的值
+  todoList.splice(num, 1); 
   localStorage.setItem('todoList', JSON.stringify(todoList));
     }
   //如果點擊到的目標元件是框框 
   else if (event.target.className == 'left_note_check') { 
-  console.log('點到了');
 
+  //目前點到的框框
   const note_check=event.target;
-  note_check.innerHTML = '√';
+  //清單區的群組
   const note_group = event.target.parentElement.nextSibling.nextSibling;
-  // console.log(note_group);
-  note_group.style.textDecorationLine = 'line-through';
+
+  //判斷是不是已經打勾過了
+  if(note_group.style.textDecorationLine !== 'line-through'){
+    note_group.style.textDecorationLine = 'line-through';
+    note_check.innerHTML = '√';
+    
+  }else{
+    note_group.style.textDecorationLine = 'none';
+    note_check.innerHTML = '';
+  }
   }
 
   
