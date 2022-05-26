@@ -16,12 +16,23 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- 日期數字字體 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Signika+Negative&display=swap" rel="stylesheet">
   <!-- goole字體引入結束 -->
 
   <!-- font awesome 引入 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- font awesome 引入結束 -->
 
+  <?php
+  if(isset($_POST['theme'])){
+    $theme = $_POST['theme'];
+  }
+  
+  ?>
   <!-- css檔案引入 -->
   <link rel="stylesheet" href="./style.css">
 </head>
@@ -84,13 +95,18 @@
   $today = date('Y-m-d');
   $todayWeek = date('l', strtotime($today)); //今天星期幾
   $todayFont = date('d', strtotime($today)); //今天的日
+
+
   ?>
 
   <!-- 上選單 -->
   <div class="nav">
-
+    
     <div class="nav_logo">
-      <a href="./index.php">FY's Calendar</a>
+      <a href="./index.php">
+        <img src="./images/logo2.png" alt="logo">
+        <!-- <span style="color: #f4acab;">F</span><span style="color: #ffbd91;">Y</span><span style="color: #fff27b;">'s</span> <span style="color: #83e3b5;">C</span><span style="color: #c2eaff;">a</span><span style="color: #83ddfe;">l</span><span style="color: #a093d7;">e</span><span style="color: #f4acab;">n</span><span style="color: #ffbd91;">d</span><span style="color: #fff27b;">a</span><span style="color: #83e3b5;">r</span> -->
+         </a>
     </div>
 
     <div class="nav_right">
@@ -116,7 +132,7 @@
           <button type="submit" id="nav_bn"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
       </div>
-      
+
       <div class="nav_today">
         <a href="" title="回到今天">TODAY</a>
       </div>
@@ -278,7 +294,7 @@
   </div>
 
   <div class="footer">
-    &copy; <?=date('Y')?> FY
+    &copy; <?= date('Y') ?> FY
   </div>
 
   <!-- 新增待辦清單區 先隱藏起來 -->

@@ -125,13 +125,17 @@ left_note_content[0].addEventListener('click',function(event){
   //判斷是不是已經打勾過了
   if(note_group.style.textDecorationLine !== 'line-through'){
     note_group.style.textDecorationLine = 'line-through';
-    note_check.innerHTML = '√';
+    note_check.style.backgroundImage = "url(./images/check.png)";
+    note_check.style.backgroundColor = 'pink';
+    
     
   }else{
     note_group.style.textDecorationLine = 'none';
-    note_check.innerHTML = '';
+    note_check.style.backgroundImage = "";
+    note_check.style.backgroundColor = 'white';
   }
   }
+
 
   
 })
