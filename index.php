@@ -1,45 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>萬年曆作業</title>
-  <!-- goole字體引入 -->
-  <!-- 英文字體 -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,700&display=swap" rel="stylesheet">
-
-  <!-- 思源黑體 -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
-
-  <!-- 日期數字字體 -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Signika+Negative&display=swap" rel="stylesheet">
-  <!-- goole字體引入結束 -->
-
-  <!-- font awesome 引入 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <!-- font awesome 引入結束 -->
-
-  <?php
-  if(isset($_POST['theme'])){
-    $theme = $_POST['theme'];
-  }
-  
-  ?>
-  <!-- css檔案引入 -->
-  <link rel="stylesheet" href="./style.css">
-</head>
-
-<body>
-
-  <?php
+<?php
   /*請在這裹撰寫你的萬年曆程式碼*/
 
   //判斷網址內是否有參數,有的話讓month,year去抓取資料,沒有的話就是目前月份和年
@@ -98,7 +57,53 @@
 
 
   ?>
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>萬年曆作業</title>
+  <!-- goole字體引入 -->
+  <!-- 英文字體 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,700&display=swap" rel="stylesheet">
+
+  <!-- 思源黑體 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- 日期數字字體 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Signika+Negative&display=swap" rel="stylesheet">
+  <!-- goole字體引入結束 -->
+
+  <!-- font awesome 引入 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- font awesome 引入結束 -->
+
+  <?php
+  if(isset($_POST['theme'])){
+    $theme = $_POST['theme'];
+  }
+  
+  ?>
+  <!-- css檔案引入 -->
+  <link rel="stylesheet" href="./style.css">
+  <style>
+    @media (max-width:576px){
+    .con_date::before {
+      content: "<?=$monthFont?> ";
+    }
+    }
+  </style>
+</head>
+
+<body>
   <!-- 上選單 -->
   <div class="nav">
     
@@ -134,7 +139,7 @@
       </div>
 
       <div class="nav_today">
-        <a href="" title="回到今天">TODAY</a>
+        <a href="./index.php" title="回到今天">TODAY</a>
       </div>
 
     </div>
@@ -206,12 +211,10 @@
           </div> -->
           <!-- 代辦區的群組 -->
 
-
-
-
         </div>
       </div>
     </div>
+    <!-- 月曆的左半邊結束 -->
 
     <!-- 月曆的右半邊 -->
     <div class="right">
@@ -292,10 +295,13 @@
       </div>
     </div>
   </div>
+  <!-- 月曆的右半邊結束 -->
 
+  <!-- 頁尾區 -->
   <div class="footer">
     &copy; <?= date('Y') ?> FY
   </div>
+  <!-- 頁尾區結束 -->
 
   <!-- 新增待辦清單區 先隱藏起來 -->
   <div class="noteFormBG">
@@ -318,10 +324,11 @@
       </div>
     </div>
   </div>
+  <!-- 新增待辦清單區結束 先隱藏起來 -->
 
   <!-- 點日期的js -->
   <script src="./date.js"></script>
-
+  
   <!-- 打開新增待辦清單的js -->
   <script src="./noteForm.js"></script>
 

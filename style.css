@@ -69,12 +69,14 @@ select>option {
     padding: 6px 4px;
 }
 
-
+#themeSelect:hover {
+    color: grey;
+    cursor: pointer;
+}
 
 #form_search{
     flex-direction: row;
     width: 100%;
-
 }
 
 .form_input{
@@ -106,20 +108,36 @@ select>option {
     font-size: 16px;
 }
 
+#nav_bn:hover {
+    color: lightgray;
+}
+
+#nav_bn:active {
+    color: gray;
+}
+
 .nav_today{
+    margin: 0 10px;
+    text-align: center;
+}
+
+.nav_today>a {
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    border: 2px solid black;
     border-radius: 20px;
     padding: 5px 10px;
     height: 30px;
     line-height: 20px;
-    text-align: center;
-    margin: 0 10px;
-    border: 2px solid black;
-    
 }
-
-.nav_today>a {
-    text-decoration: none;
-    color: black;
+.nav_today>a:hover {
+    color: rgb(255, 207, 214);
+    border-color: rgb(255, 207, 214);
+}
+.nav_today>a:active {
+    color: lightpink;
+    border-color: lightpink;
 }
 
 
@@ -625,3 +643,114 @@ input[type=time] {
     cursor: pointer;
 }
 /* 待辦事項彈出視窗區 結束 */
+
+@media (max-width:576px){
+    .calendar {
+        flex-direction: column-reverse;
+        width: 95%;
+    }
+
+    .right {
+        width: 100%;
+    }
+
+    .table {
+        width: 98%;
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: flex-start;
+        background-color: rgba(255, 255, 255, 0);
+        padding: 20px 0;
+        margin: 0 auto;
+        border-bottom: 1px solid black;
+    }
+
+    .table>.dateTd {
+        height: 70px;
+        width: calc(100% / 7);
+    }
+
+    .dateBG {
+        height: 37px;
+        width: 37px;
+        line-height: 37px;
+        border-radius: 37px;
+    }
+
+    .table>.header_year {
+        justify-content: center;
+    }
+
+    .table>.header_month {
+        flex-wrap: wrap;
+        padding: 0 0;
+        padding-bottom: 10px;
+        height: 70px;
+    }
+    
+    .table>.header_month>div {
+        width: calc(100% / 6);
+    }
+
+    .weekDay>div {
+        padding: 2px 4px;
+    }
+
+    .left {
+        width: 100%;
+        height: 100%;
+        border-right: none;
+        flex-direction: column;
+        
+    }
+
+    .left_content {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content:center;
+        margin: 20px 0;
+        height: 80px;
+    }
+
+    .left_header {
+        height: 40px;
+    }
+
+    .left_header_bn {
+        margin: 0;
+    }
+
+    .left_note_hd {
+        margin: 5px 0;
+    }
+
+    .con_date {
+        width: 100%;
+        text-align: center;
+        font-size: 48px;
+    }
+
+    .noteFormBG {
+        height: 100vh;
+    }
+
+    .noteForm {
+        width: 90%;
+        height: 75%;
+        padding: 5px;
+    }
+
+    form {
+        width: 95%;
+    }
+
+    input[type=time] {
+        margin: 10px 0;
+    }
+
+    #formBn {
+        width: 100%;
+    }
+}
