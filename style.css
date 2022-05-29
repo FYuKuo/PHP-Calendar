@@ -49,14 +49,12 @@ body {
     display: flex;
 }
 
-.nav_theme {
+.nav_right_humBar_items {
     display: flex;
-    margin: 0 10px;
 }
 
-.nav_theme_icon{
+.nav_theme {
     margin: 0 10px;
-    line-height: 30px;
 }
 
 select>option {
@@ -140,6 +138,9 @@ select>option {
     border-color: lightpink;
 }
 
+.nav_hamBar {
+    display: none;
+}
 
 /* 上選單結束 */
 
@@ -644,16 +645,75 @@ input[type=time] {
 }
 /* 待辦事項彈出視窗區 結束 */
 
+
+/* 手機板尺寸 */
 @media (max-width:576px){
+
+    .nav_right {
+        height: 30px;
+    }
+
+    .nav_right_humBar_items {
+        display: none;
+        position: fixed;
+        flex-direction: column;
+        background-color: rgb(247, 247, 247);
+        width: 100%;
+        top: 56px;
+        right: 0;
+    }
+
+    .nav_right_humBar_items>div {
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+        height: 50px;
+        line-height: 50px;
+        border-bottom: 1px solid lightgrey;
+    }
+
+    #themeSelect {
+        background-color: rgb(247, 247, 247);
+    }
+
+    .nav_today>a {
+        border: none;
+    }
+
+    .form_input {
+        position: fixed;
+        width: 100%;
+        height: 50px;
+        background-color: white;
+        top: 56px;
+        right: 0;
+        text-align: center;
+    }
+
+
+
+    #nav_year,#nav_month {
+        margin: 0 15px;
+    }
+
+    .nav_hamBar {
+        display: block;
+        line-height: 30px;
+        margin-left: 15px;
+    }
+
+    /* 整個行事曆 */
     .calendar {
         flex-direction: column-reverse;
         width: 95%;
     }
 
+    /* 手機板上區塊 */
     .right {
         width: 100%;
     }
 
+    /* 日期表格區 */
     .table {
         width: 98%;
         height: 100%;
@@ -683,6 +743,10 @@ input[type=time] {
         justify-content: center;
     }
 
+    .year {
+        margin: 0 30px;
+    }
+
     .table>.header_month {
         flex-wrap: wrap;
         padding: 0 0;
@@ -698,6 +762,7 @@ input[type=time] {
         padding: 2px 4px;
     }
 
+    /* 手機板下區塊 */
     .left {
         width: 100%;
         height: 100%;

@@ -95,9 +95,6 @@
     noteText.value = '';
     })
 
-//取得叉叉的元件
-var left_note_del = document.getElementsByClassName('left_note_del');
-
 left_note_content[0].addEventListener('click',function(event){
 
   //如果點擊到的目標元件是叉叉

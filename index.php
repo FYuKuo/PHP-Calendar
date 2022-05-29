@@ -1,62 +1,62 @@
 <?php
-  /*請在這裹撰寫你的萬年曆程式碼*/
+/*請在這裹撰寫你的萬年曆程式碼*/
 
-  //判斷網址內是否有參數,有的話讓month,year去抓取資料,沒有的話就是目前月份和年
-  if (isset($_GET['year']) && isset($_GET['month'])) {
-    $year = $_GET['year'];
-    $month = $_GET['month'];
-  } elseif (isset($_GET['month']) && !isset($_GET['year'])) {
-    $month = $_GET['month'];
-    $year = date('Y');
-  } elseif (isset($_GET['year']) && !isset($_GET['month'])) {
-    $year = $_GET['year'];
-    $month = date('m');
-  } else {
-    $month = date('m');
-    $year = date('Y');
-  }
+//判斷網址內是否有參數,有的話讓month,year去抓取資料,沒有的話就是目前月份和年
+if (isset($_GET['year']) && isset($_GET['month'])) {
+  $year = $_GET['year'];
+  $month = $_GET['month'];
+} elseif (isset($_GET['month']) && !isset($_GET['year'])) {
+  $month = $_GET['month'];
+  $year = date('Y');
+} elseif (isset($_GET['year']) && !isset($_GET['month'])) {
+  $year = $_GET['year'];
+  $month = date('m');
+} else {
+  $month = date('m');
+  $year = date('Y');
+}
 
-  //上一年和下一年的變數設定
-  $lastYear = $year - 1;
-  $nextYear = $year + 1;
+//上一年和下一年的變數設定
+$lastYear = $year - 1;
+$nextYear = $year + 1;
 
-  $firstDay = $year . "-" . $month . "-1"; //月份第一天
-  $firstDaySecond = strtotime($firstDay); //月份第一天轉秒
-  $monthDay = date('t', $firstDaySecond); //月份天數
-  $lastDay = $year . "-" . $month . "-" . $monthDay; //月份最後一天
-  $lastDaySecond = strtotime($lastDay); //月份最後一天轉秒
-  $firstDayWeek = date('w', $firstDaySecond); //第一天星期幾
-  $lasttDayWeek = date('w', $lastDaySecond); //最後一天星期幾
-  $monthFont = date('M', $firstDaySecond); //月份英文
+$firstDay = $year . "-" . $month . "-1"; //月份第一天
+$firstDaySecond = strtotime($firstDay); //月份第一天轉秒
+$monthDay = date('t', $firstDaySecond); //月份天數
+$lastDay = $year . "-" . $month . "-" . $monthDay; //月份最後一天
+$lastDaySecond = strtotime($lastDay); //月份最後一天轉秒
+$firstDayWeek = date('w', $firstDaySecond); //第一天星期幾
+$lasttDayWeek = date('w', $lastDaySecond); //最後一天星期幾
+$monthFont = date('M', $firstDaySecond); //月份英文
 
-  $allDay = []; //要放所有天數的空陣列
+$allDay = []; //要放所有天數的空陣列
 
-  //月份第一天前的空日期
-  for ($i = 0; $i < $firstDayWeek; $i++) {
-    $allDay[] = "";
-  }
+//月份第一天前的空日期
+for ($i = 0; $i < $firstDayWeek; $i++) {
+  $allDay[] = "";
+}
 
-  //月份所有日期
-  for ($i = 0; $i < $monthDay; $i++) {
-    $date = date('Y-m-d', strtotime("+$i days", $firstDaySecond));
-    $allDay[] = $date;
-  }
+//月份所有日期
+for ($i = 0; $i < $monthDay; $i++) {
+  $date = date('Y-m-d', strtotime("+$i days", $firstDaySecond));
+  $allDay[] = $date;
+}
 
-  //月份最後一天後的空日期
-  for ($i = 0; $i < 6 - $lasttDayWeek; $i++) {
-    $allDay[] = "";
-  }
+//月份最後一天後的空日期
+for ($i = 0; $i < 6 - $lasttDayWeek; $i++) {
+  $allDay[] = "";
+}
 
-  //所有月份的英文陣列,並設定索引從1開始
-  $allMonth = ['1' => 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+//所有月份的英文陣列,並設定索引從1開始
+$allMonth = ['1' => 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-  //今天
-  $today = date('Y-m-d');
-  $todayWeek = date('l', strtotime($today)); //今天星期幾
-  $todayFont = date('d', strtotime($today)); //今天的日
+//今天
+$today = date('Y-m-d');
+$todayWeek = date('l', strtotime($today)); //今天星期幾
+$todayFont = date('d', strtotime($today)); //今天的日
 
 
-  ?>
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -87,18 +87,18 @@
   <!-- font awesome 引入結束 -->
 
   <?php
-  if(isset($_POST['theme'])){
+  if (isset($_POST['theme'])) {
     $theme = $_POST['theme'];
   }
-  
+
   ?>
   <!-- css檔案引入 -->
   <link rel="stylesheet" href="./style.css">
   <style>
-    @media (max-width:576px){
-    .con_date::before {
-      content: "<?=$monthFont?> ";
-    }
+    @media (max-width:576px) {
+      .con_date::before {
+        content: "<?= $monthFont ?> ";
+      }
     }
   </style>
 </head>
@@ -106,27 +106,15 @@
 <body>
   <!-- 上選單 -->
   <div class="nav">
-    
+
     <div class="nav_logo">
       <a href="./index.php">
         <img src="./images/logo2.png" alt="logo">
         <!-- <span style="color: #f4acab;">F</span><span style="color: #ffbd91;">Y</span><span style="color: #fff27b;">'s</span> <span style="color: #83e3b5;">C</span><span style="color: #c2eaff;">a</span><span style="color: #83ddfe;">l</span><span style="color: #a093d7;">e</span><span style="color: #f4acab;">n</span><span style="color: #ffbd91;">d</span><span style="color: #fff27b;">a</span><span style="color: #83e3b5;">r</span> -->
-         </a>
+      </a>
     </div>
 
     <div class="nav_right">
-
-      <div class="nav_theme">
-
-        <div class="nav_theme_icon"><i class="fa-solid fa-palette"></i></div>
-
-        <select name="theme" id="themeSelect">
-          <option value="colorful">繽紛嘉年華</option>
-          <option value="BandW">黑白新世界</option>
-          <option value="animal">動物遊樂園</option>
-        </select>
-
-      </div>
 
       <div class="nav_search">
         <form action="./index.php" method="$_GET" id="form_search">
@@ -138,10 +126,27 @@
         </form>
       </div>
 
-      <div class="nav_today">
-        <a href="./index.php" title="回到今天">TODAY</a>
-      </div>
+      <div class="nav_right_humBar_items">
+        
+        <div class="nav_theme">
+  
+          <select name="theme" id="themeSelect">
+            <option value="colorful">繽紛嘉年華</option>
+            <option value="BandW">黑白新世界</option>
+            <option value="animal">動物遊樂園</option>
+          </select>
+  
+        </div>
+  
+        <div class="nav_today">
+          <a href="./index.php" title="回到今天">TODAY</a>
+        </div>
 
+      </div>
+      
+      <div class="nav_hamBar">
+        <i class="fa-solid fa-bars"></i>
+      </div>
     </div>
 
   </div>
@@ -327,15 +332,19 @@
   <!-- 新增待辦清單區結束 先隱藏起來 -->
 
   <!-- 點日期的js -->
-  <script src="./date.js"></script>
-  
+  <script src="./js/date.js"></script>
+
   <!-- 打開新增待辦清單的js -->
-  <script src="./noteForm.js"></script>
+  <script src="./js/noteForm.js"></script>
 
   <!-- 加入&刪除待辦清單的js -->
-  <script src="./noteAdd.js"></script>
+  <script src="./js/noteAdd.js"></script>
 
-  <script src="./searchForm.js"></script>
+  <!-- 搜尋按鈕的js -->
+  <script src="./js/searchForm.js"></script>
+
+  <!-- 側邊選單的js -->
+  <script src="./js/nav.js"></script>
 
   <!-- 關閉重新提交表單 -->
   <script>
