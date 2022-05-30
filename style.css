@@ -511,15 +511,22 @@ select>option {
 
 /* 待辦事項彈出視窗區 */
 .noteFormBG {
-    position: absolute;
+    position: fixed;
     width: 100%;
-    height: 1000px;
-    background-color: rgb(0 0 0/0.8);
-    margin: 0 auto;
+    height: 100%;
     display: none;
 }
 
+.noteAddBG{
+    position: absolute;
+    background-color: rgb(0 0 0/0.8);
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+
 .noteFormFlex {
+    position: absolute;
     width: 100%;
     height: 100%;
     display: flex;
@@ -663,6 +670,16 @@ input[type=time] {
         right: 0;
     }
 
+    .nav_right_humBar_items_bg {
+        display: none;
+        position: absolute;
+        background-color: rgba(114, 114, 114, 0.185);
+        width: 100%;
+        height: 100vh;
+        top: 56px;
+        right: 0;
+    }
+
     .nav_right_humBar_items>div {
         width: 100%;
         margin: 0 auto;
@@ -690,6 +707,15 @@ input[type=time] {
         text-align: center;
     }
 
+    .form_bg{
+        display: none;
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        top: 56px;
+        right: 0;
+        background-color: rgba(114, 114, 114, 0.185);
+    }
 
 
     #nav_year,#nav_month {
@@ -817,5 +843,13 @@ input[type=time] {
 
     #formBn {
         width: 100%;
+    }
+
+    .left_note_title {
+        width: 70%;
+    }
+
+    .left_note_time {
+        width: 30%;
     }
 }

@@ -118,6 +118,7 @@ $todayFont = date('d', strtotime($today)); //今天的日
 
       <div class="nav_search">
         <form action="./index.php" method="$_GET" id="form_search">
+          <div class="form_bg"></div>
           <div class="form_input">
             <input type="text" name="year" id="nav_year" placeholder="西元年" required>
             <input type="text" name="month" id="nav_month" placeholder="月份" required>
@@ -125,6 +126,8 @@ $todayFont = date('d', strtotime($today)); //今天的日
           <button type="submit" id="nav_bn"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
       </div>
+
+      <div class="nav_right_humBar_items_bg"></div>
 
       <div class="nav_right_humBar_items">
         
@@ -310,6 +313,8 @@ $todayFont = date('d', strtotime($today)); //今天的日
 
   <!-- 新增待辦清單區 先隱藏起來 -->
   <div class="noteFormBG">
+    <div class="noteAddBG">
+    </div>
     <div class="noteFormFlex">
       <div class="noteForm">
         <div class="noteClose" onclick="myClose()">
