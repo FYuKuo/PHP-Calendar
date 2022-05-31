@@ -89,12 +89,15 @@ $todayFont = date('d', strtotime($today)); //今天的日
   <?php
   if (isset($_POST['theme'])) {
     $theme = $_POST['theme'];
+  }else {
+    $theme = 'colorful';
   }
 
   ?>
   <!-- css檔案引入 -->
   <link rel="stylesheet" href="./style.css">
   <style>
+    /* 手機板在下方欄位加上月份顯示 */
     @media (max-width:576px) {
       .con_date::before {
         content: "<?= $monthFont ?> ";
@@ -110,7 +113,6 @@ $todayFont = date('d', strtotime($today)); //今天的日
     <div class="nav_logo">
       <a href="./index.php">
         <img src="./images/logo2.png" alt="logo">
-        <!-- <span style="color: #f4acab;">F</span><span style="color: #ffbd91;">Y</span><span style="color: #fff27b;">'s</span> <span style="color: #83e3b5;">C</span><span style="color: #c2eaff;">a</span><span style="color: #83ddfe;">l</span><span style="color: #a093d7;">e</span><span style="color: #f4acab;">n</span><span style="color: #ffbd91;">d</span><span style="color: #fff27b;">a</span><span style="color: #83e3b5;">r</span> -->
       </a>
     </div>
 
@@ -133,11 +135,14 @@ $todayFont = date('d', strtotime($today)); //今天的日
         
         <div class="nav_theme">
   
-          <select name="theme" id="themeSelect">
-            <option value="colorful">繽紛嘉年華</option>
-            <option value="BandW">黑白新世界</option>
-            <option value="animal">動物遊樂園</option>
-          </select>
+          <form action="./index.php" method="post" id="themeForm">
+            <select name="theme" id="themeSelect">
+              <option>選擇主題</option>
+              <option value="colorful">繽紛嘉年華</option>
+              <option value="BandW">黑白新世界</option>
+              <option value="animal">動物遊樂園</option>
+            </select>
+          </form>
   
         </div>
   
@@ -350,6 +355,9 @@ $todayFont = date('d', strtotime($today)); //今天的日
 
   <!-- 側邊選單的js -->
   <script src="./js/nav.js"></script>
+
+  <!-- 送出表單的js -->
+  <script src="./js/submit.js"></script>
 
   <!-- 關閉重新提交表單 -->
   <script>
