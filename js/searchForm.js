@@ -12,6 +12,8 @@ form_input.addEventListener('mouseover',function(){
 })
 form_input.addEventListener('mouseout',function(){
     form_input.style.display = 'none';
+    form_bg.style.display = 'none';
+
 })
 
 form_bg.addEventListener('click',function(){

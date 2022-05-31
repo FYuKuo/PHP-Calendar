@@ -853,3 +853,120 @@ input[type=time] {
         width: 30%;
     }
 }
+
+@media (min-width:577px) and (max-width:991px) {
+
+    /* nav區 */
+    .nav_right {
+        height: 30px;
+    }
+
+    .nav_right_humBar_items {
+        display: none;
+        position: fixed;
+        flex-direction: column;
+        background-color: rgb(247, 247, 247);
+        width: 100%;
+        top: 56px;
+        right: 0;
+    }
+
+    .nav_right_humBar_items_bg {
+        display: none;
+        position: absolute;
+        background-color: rgba(114, 114, 114, 0.185);
+        width: 100%;
+        height: 100vh;
+        top: 56px;
+        right: 0;
+    }
+
+    .nav_right_humBar_items>div {
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+        height: 50px;
+        line-height: 50px;
+        border-bottom: 1px solid lightgrey;
+    }
+
+    #themeSelect {
+        background-color: rgb(247, 247, 247);
+    }
+
+    .nav_today>a {
+        border: none;
+    }
+
+    .form_input {
+        position: fixed;
+        width: 100%;
+        height: 50px;
+        background-color: white;
+        top: 56px;
+        right: 0;
+        text-align: center;
+    }
+
+    .form_bg{
+        display: none;
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        top: 56px;
+        right: 0;
+        background-color: rgba(114, 114, 114, 0.185);
+    }
+
+
+    #nav_year,#nav_month {
+        margin: 0 15px;
+    }
+
+    .nav_hamBar {
+        display: block;
+        line-height: 30px;
+        margin-left: 15px;
+    }
+
+    /* 行事曆區 */
+    .calendar {
+        width: 90%;
+        justify-content:flex-start;
+    }
+
+    .right {
+        width: 60%;
+    }
+    .table {
+        width: 90%;
+    }
+
+    .table>.dateTd {
+        /* height: 70px; */
+        width: calc(100% / 7);
+        height: 85px;
+    }
+
+    .table>.header_month {
+        flex-wrap: wrap;
+        height: 80px;
+        padding-bottom: 10px;
+    }
+
+    .table>.header_month>div {
+        width: calc(100% / 6);
+    }
+
+    .left {
+        width: 40%;
+    }
+    
+    .left_note_title {
+        width: 65%;
+    }
+
+    #formBn {
+        width: 80%;
+    }
+}
