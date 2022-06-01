@@ -1,0 +1,978 @@
+* {
+    box-sizing: border-box;
+    /* overflow: hidden; */
+    margin: 0;
+  }
+
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background: url(../images/rainbow.jpg);
+    background-size: cover;
+    background-repeat: repeat-y;
+    background-position: center;
+}
+
+/* 上選單 */
+.nav {
+    width: 100%;
+    height: 60px;
+    box-shadow: 0 0 10px lightgray;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    font-family: 'Josefin Sans', sans-serif;
+    display: flex;
+    align-items: center;
+    padding: 0 25px;
+    justify-content: space-between;
+}
+
+.nav_logo {
+    font-size: 24px;
+    width: 200px;
+    text-align: center;
+
+}
+
+.nav_logo>a {
+    text-decoration: none;
+    color: black;
+}
+
+.nav_right {
+    display: flex;
+}
+
+.nav_right_humBar_items {
+    display: flex;
+}
+
+.nav_theme {
+    margin: 0 10px;
+}
+
+select>option {
+    margin: 5px 0;
+    outline: none;
+}
+
+#themeSelect{
+    border: none;
+    padding: 6px 4px;
+}
+
+#themeSelect:hover {
+    color: grey;
+    cursor: pointer;
+}
+
+#form_search{
+    width: 100%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    /* align-items: center; */
+    overflow: auto;
+}
+
+.form_input{
+    display: none;
+    padding-top: 5px;
+}
+
+#nav_year {
+    border-bottom: 1px solid gray;
+    width: 100px;
+    margin: 0 5px;
+    padding: 2px 4px;
+    font-size: 14px;
+    
+}
+#nav_month {
+    border-bottom: 1px solid gray;
+    width: 100px;
+    padding: 2px 4px;
+    margin: 0 5px;
+    font-size: 14px;
+
+}
+
+#nav_bn {
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#nav_bn:hover {
+    color: lightgray;
+}
+
+#nav_bn:active {
+    color: gray;
+}
+
+.nav_today{
+    margin: 0 10px;
+    text-align: center;
+}
+
+.nav_today>a {
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 5px 10px;
+    height: 30px;
+    line-height: 20px;
+}
+.nav_today>a:hover {
+    color: rgb(255, 207, 214);
+    border-color: rgb(255, 207, 214);
+}
+.nav_today>a:active {
+    color: lightpink;
+    border-color: lightpink;
+}
+
+.nav_hamBar {
+    display: none;
+    cursor: pointer;
+}
+
+/* 上選單結束 */
+
+/* 整個行事曆 */
+.calendar {
+    box-shadow: 0 0 20px lightgray;
+    width: 1200px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 25px;
+    align-self: center;
+    background-color: #fff;
+    margin: 40px 0;
+}
+
+/* 左側 */
+.left{
+    width: 450px;
+    height: 800px;
+    border-right: 1px solid gray;
+    padding: 0 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+/* 整個左側的下半部 */
+.left_note {
+    width: 100%;
+    height: 570px;
+}
+
+.left_note_hd {
+    text-align: center;
+    height: 35px;
+    line-height: 35px;
+    color: rgb(27, 27, 27);
+    margin: 25px 0;
+    font-size: 20px;
+    font-family: 'Noto Sans TC', sans-serif;
+    letter-spacing: 5px;
+}
+/* 待辦事項粉色框 */
+.left_note_content {
+    /* width: 100%; */
+    height: 470px;
+    background-color: rgba(255, 218, 218, 0.829);
+    border-radius: 20px;
+    padding: 5px 0;
+    overflow: auto;
+    box-shadow: 0 0 8px lightgray;
+}
+
+/* 待辦事項白色框 */
+.left_note_list {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 20px;
+    width: 95%;
+    margin: 5px auto;
+}
+
+.left_note_list:hover{
+    box-shadow: 0 0 10px rgb(175, 175, 175);
+}
+
+.left_note_del{
+    width: 15px;
+    color: lightgrey;
+    margin: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    /* padding-left: 1px; */
+}
+
+.left_note_del:hover{
+    color: gray;
+}
+
+.left_note_check{
+    width: 18px;
+    height: 18px;
+    margin: 10px;
+    cursor: pointer;
+    background-color: white;
+    border: 2px solid lightgrey;
+    border-radius: 15px;
+}
+
+.left_note_check:hover{
+    border: 2px solid grey;
+
+}
+
+.left_note_choose{
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+
+}
+
+.left_note_group{
+    width: 90%;
+    /* height: 80px; */
+    margin: 5px auto;
+    font-family: 'Noto Sans TC', sans-serif;
+    letter-spacing: 1px;
+}
+
+.left_note_title_group {
+    border-bottom: 1px solid lightgray;
+    margin: 0 10px;
+    display: flex;
+    height: 50%;
+
+}
+
+.left_note_title {
+    width: 80%;
+    padding: 8px 10px;
+    font-size: 22px;
+    font-weight: bold;
+    /* line-height: 30px; */
+    
+}
+
+.left_note_time {
+    width: 20%;
+    padding: 8px 10px;
+    font-size: 18px;
+    line-height: 30px;
+}
+
+.left_note_text {
+    /* height: 50%; */
+    width: 100%;
+    padding: 8px 20px;
+    color: gray;
+    font-size: 16px;
+}
+/* 待辦事項區結束 */
+
+
+/* 左側上半部 */
+.left_header{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    height: 50px;
+
+}
+
+.left_header_bn{
+    font-size: 18px;
+    /* padding: 20px; */
+    cursor: pointer;
+    font-family: 'Noto Sans TC', sans-serif;
+    margin: 20px 0;
+    width: 80px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 30px;
+}
+
+.left_header_bn:hover{
+    background-color: rgba(211, 211, 211, 0.178);
+    box-shadow: 0 0 8px rgb(228, 228, 228);
+}
+
+.left_header_bn:active{
+    background-color: rgb(255, 214, 220);
+    color: white;
+    box-shadow: 0 0 8px rgb(228, 228, 228);
+}
+
+/* 左側中間日期區 */
+.left_content{
+    width: 100%;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+
+}
+
+.con_date{
+    font-size: 72px;
+    font-weight: bold;
+    font-family: 'Josefin Sans', sans-serif;
+    margin-bottom: 10px;
+}
+
+.con_week{
+    font-size: 32px;
+    font-weight: bold;
+    font-family: 'Josefin Sans', sans-serif;
+}
+/* 左側結束 */
+
+/* 行事曆右側 */
+/* 日期表格區 */
+.table {
+    width: 700px;
+    height: 800px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+    background-color: white;
+    padding: 20px 0;
+    margin: 0 20px;
+}
+
+.table>.dateTd {
+    height: 100px;
+    width: 100px;
+    /* border: 1px solid lightgrey; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 星期區 */
+.table>.weekDay {
+    height: 60px;
+    line-height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    color: gray;
+    font-family: 'Josefin Sans', sans-serif;
+
+}
+
+.weekDay>div {
+    width: 100px;
+}
+
+.weekend {
+    color: rgb(255, 207, 214);;
+}
+
+/* 月份區 */
+.table>.header_month {
+    display: flex;
+    width: 100%;
+    height: 60px;
+    align-items: center;
+    padding: 0 10px;
+    text-align: center;
+    border-bottom: 2px solid gray;
+}
+
+.table>.header_month>div{
+    width: calc(100% / 12);
+}
+
+.table>.header_month>div>a{
+    text-decoration: none;
+    color: gray;
+    font-size: 16px;
+    font-family: 'Josefin Sans', sans-serif;
+
+}
+
+.table>.header_month>div>a:hover {
+    font-size: 20px;
+    font-weight: bolder;
+    color: rgb(255, 207, 214);
+}
+
+.table>.header_month>div>a.thisMonth {
+    font-size: 24px;
+    font-weight: bolder;
+    color: lightpink;
+}
+
+/* 年分區 */
+.table>.header_year {
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 40px;
+}
+
+.year{
+    font-size: 28px;
+    margin: 0 10px;
+    font-weight: bolder;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.year-page>a {
+    text-decoration: none;
+    color: gray;
+}
+
+.year-page>a:hover {
+    color: rgb(255, 207, 214);
+}
+
+/* 日期格子背景 */
+.dateBG {
+    width: 50px;
+    height: 50px;
+    /* background-color: aqua; */
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer; 
+    border-radius: 50px;
+    font-family: 'Signika Negative', sans-serif;
+}
+
+.dateBG:hover{
+    background-color: rgb(211, 211, 211, 0.178);
+}
+
+.dateBG:active{
+    background-color: rgb(255, 214, 220);
+    color: white;
+}
+
+/* 今天日期 */
+.today {
+    color: white;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    background-color: lightpink;
+    border-radius: 50px;
+    font-weight: bolder;
+}
+
+.today:hover{
+    background-color: lightpink;
+}
+
+/* 整個行事曆 結束*/
+
+/* footer區 */
+.footer {
+    width: 100%;
+    /* align-self: flex-end; */
+    height: 50px;
+    background-color: rgb(150, 155, 182);
+    color: white;
+    text-align: center;
+    line-height: 50px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 1px;
+    /* position: sticky;
+    bottom: 0; */
+}
+/* footer區結束 */
+
+/* 待辦事項彈出視窗區 */
+.noteFormBG {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.noteAddBG{
+    position: absolute;
+    background-color: rgb(0 0 0/0.8);
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.noteFormFlex {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+ 
+
+.noteForm{
+    width: 70%;
+    height: 70%;
+    background-color: rgb(255, 212, 219);
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+
+}
+
+.noteClose {
+    cursor: pointer;
+    align-self: flex-end;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(255, 124, 124);
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    text-align: center;
+    line-height: 30px;
+}
+
+.noteClose:hover {
+    background-color: rgb(255, 124, 124);
+    color: white;
+    /* font-weight: bolder; */
+}
+
+#myFrom {
+    height: 90%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    /* align-items: center; */
+    overflow: auto;
+}
+
+.noteFormHd {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bolder;
+    /* margin: 20px 0; */
+    letter-spacing: 2px;
+}
+
+.formText {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+    background-color: white;
+    height: 400px;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+input[type=text] {
+    border: none;
+    font-size: 18px;
+}
+
+input[type=text]:focus,textarea:focus {
+    outline: none;
+}
+
+
+#noteTitle {
+    height: 20%;
+    border-bottom: 1px solid lightgrey;
+    padding: 10px;
+
+}
+
+#noteText {
+    height: 80%;
+    border: none;
+    font-size: 18px;
+    padding: 20px 10px;
+}
+
+#formBn {
+    margin: 10px auto;
+    border: none;
+    border-radius: 25px;
+    width: 400px;
+    padding: 5px 10px;
+    font-size: 20px;
+    background-color: rgb(255, 124, 124);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    /* box-shadow: 0 0 5px rgb(197, 130, 130); */
+}
+
+#formBn:hover {
+    background-color: rgb(231, 102, 102);
+    box-shadow: 0 0 5px rgb(197, 130, 130);
+
+}
+
+input[type=time] {
+    border: none;
+    height: 40px;
+    border-radius: 25px;
+    padding: 5px 10px;
+    font-size: 18px;
+    margin: 10px ;
+    text-align: center;
+    cursor: pointer;
+}
+/* 待辦事項彈出視窗區 結束 */
+
+
+/* 手機板尺寸 */
+@media (max-width:768px){
+
+    .nav_right {
+        height: 30px;
+    }
+
+    .nav_right_humBar_items {
+        display: none;
+        position: fixed;
+        flex-direction: column;
+        background-color: rgb(247, 247, 247);
+        width: 100%;
+        top: 56px;
+        right: 0;
+    }
+
+    .nav_right_humBar_items_bg {
+        display: none;
+        position: absolute;
+        background-color: rgba(114, 114, 114, 0.185);
+        width: 100%;
+        height: 100vh;
+        top: 56px;
+        right: 0;
+    }
+
+    .nav_right_humBar_items>div {
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+        height: 50px;
+        line-height: 50px;
+        border-bottom: 1px solid lightgrey;
+    }
+
+    #themeSelect {
+        background-color: rgb(247, 247, 247);
+    }
+
+    .nav_today>a {
+        border: none;
+    }
+
+    .form_input {
+        position: fixed;
+        width: 100%;
+        height: 50px;
+        background-color: white;
+        top: 56px;
+        right: 0;
+        text-align: center;
+    }
+
+    .form_bg{
+        display: none;
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        top: 56px;
+        right: 0;
+        background-color: rgba(114, 114, 114, 0.185);
+    }
+
+
+    #nav_year,#nav_month {
+        margin: 0 15px;
+    }
+
+    .nav_hamBar {
+        display: block;
+        line-height: 30px;
+        margin-left: 15px;
+    }
+
+    /* 整個行事曆 */
+    .calendar {
+        flex-direction: column-reverse;
+        width: 95%;
+    }
+
+    /* 手機板上區塊 */
+    .right {
+        width: 100%;
+    }
+
+    /* 日期表格區 */
+    .table {
+        width: 98%;
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: flex-start;
+        background-color: rgba(255, 255, 255, 0);
+        padding: 20px 0;
+        margin: 0 auto;
+        border-bottom: 1px solid black;
+    }
+
+    .table>.dateTd {
+        height: 70px;
+        width: calc(100% / 7);
+    }
+
+    .dateBG {
+        height: 37px;
+        width: 37px;
+        line-height: 37px;
+        border-radius: 37px;
+    }
+
+    .table>.header_year {
+        justify-content: center;
+    }
+
+    .year {
+        margin: 0 30px;
+    }
+
+    .table>.header_month {
+        flex-wrap: wrap;
+        padding: 0 0;
+        padding-bottom: 10px;
+        height: 70px;
+    }
+    
+    .table>.header_month>div {
+        width: calc(100% / 6);
+    }
+
+    .weekDay>div {
+        padding: 2px 4px;
+    }
+
+    /* 手機板下區塊 */
+    .left {
+        width: 100%;
+        height: 100%;
+        border-right: none;
+        flex-direction: column;
+        
+    }
+
+    .left_content {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content:center;
+        margin: 20px 0;
+        height: 80px;
+    }
+
+    .left_header {
+        height: 40px;
+    }
+
+    .left_header_bn {
+        margin: 0;
+    }
+
+    .left_note_hd {
+        margin: 5px 0;
+    }
+
+    .con_date {
+        width: 100%;
+        text-align: center;
+        font-size: 48px;
+    }
+
+    .noteFormBG {
+        height: 100vh;
+    }
+
+    .noteForm {
+        width: 90%;
+        height: 75%;
+        padding: 5px;
+    }
+
+    form {
+        width: 95%;
+    }
+
+    input[type=time] {
+        margin: 10px 0;
+    }
+
+    #formBn {
+        width: 100%;
+    }
+
+    .left_note_title {
+        width: 70%;
+    }
+
+    .left_note_time {
+        width: 30%;
+    }
+}
+
+@media (min-width:769px) and (max-width:1000px) {
+
+    /* nav區 */
+    .nav_right {
+        height: 30px;
+    }
+
+    .nav_right_humBar_items {
+        display: none;
+        position: fixed;
+        flex-direction: column;
+        background-color: rgb(247, 247, 247);
+        width: 100%;
+        top: 56px;
+        right: 0;
+    }
+
+    .nav_right_humBar_items_bg {
+        display: none;
+        position: absolute;
+        background-color: rgba(114, 114, 114, 0.185);
+        width: 100%;
+        height: 100vh;
+        top: 56px;
+        right: 0;
+    }
+
+    .nav_right_humBar_items>div {
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+        height: 50px;
+        line-height: 50px;
+        border-bottom: 1px solid lightgrey;
+    }
+
+    #themeSelect {
+        background-color: rgb(247, 247, 247);
+    }
+
+    .nav_today>a {
+        border: none;
+    }
+
+    .form_input {
+        position: fixed;
+        width: 100%;
+        height: 50px;
+        background-color: white;
+        top: 56px;
+        right: 0;
+        text-align: center;
+    }
+
+    .form_bg{
+        display: none;
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        top: 56px;
+        right: 0;
+        background-color: rgba(114, 114, 114, 0.185);
+    }
+
+
+    #nav_year,#nav_month {
+        margin: 0 15px;
+    }
+
+    .nav_hamBar {
+        display: block;
+        line-height: 30px;
+        margin-left: 15px;
+    }
+
+    /* 行事曆區 */
+    .calendar {
+        width: 90%;
+        justify-content:flex-start;
+    }
+
+    .right {
+        width: 60%;
+    }
+    .table {
+        width: 90%;
+    }
+
+    .table>.dateTd {
+        /* height: 70px; */
+        width: calc(100% / 7);
+        height: 85px;
+    }
+
+    .table>.header_month {
+        flex-wrap: wrap;
+        height: 80px;
+        padding-bottom: 10px;
+    }
+
+    .table>.header_month>div {
+        width: calc(100% / 6);
+    }
+
+    .left {
+        width: 40%;
+    }
+    
+    .left_note_title {
+        width: 65%;
+    }
+
+    #formBn {
+        width: 80%;
+    }
+}

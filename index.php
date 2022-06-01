@@ -95,7 +95,8 @@ $todayFont = date('d', strtotime($today)); //今天的日
 
   ?>
   <!-- css檔案引入 -->
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./css/<?=$theme?>.css">
+  
   <style>
     /* 手機板在下方欄位加上月份顯示 */
     @media (max-width:576px) {
@@ -109,7 +110,6 @@ $todayFont = date('d', strtotime($today)); //今天的日
 <body>
   <!-- 上選單 -->
   <div class="nav">
-
     <div class="nav_logo">
       <a href="./index.php">
         <img src="./images/logo2.png" alt="logo">
@@ -119,7 +119,7 @@ $todayFont = date('d', strtotime($today)); //今天的日
     <div class="nav_right">
 
       <div class="nav_search">
-        <form action="./index.php" method="$_GET" id="form_search">
+        <form action="./index.php" method="get" id="form_search">
           <div class="form_bg"></div>
           <div class="form_input">
             <input type="text" name="year" id="nav_year" placeholder="西元年" required>
