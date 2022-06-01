@@ -145,6 +145,7 @@ select>option {
 
 .nav_hamBar {
     display: none;
+    cursor: pointer;
 }
 
 /* 上選單結束 */
@@ -659,7 +660,7 @@ input[type=time] {
 
 
 /* 手機板尺寸 */
-@media (max-width:576px){
+@media (max-width:768px){
 
     .nav_right {
         height: 30px;
@@ -859,7 +860,7 @@ input[type=time] {
     }
 }
 
-@media (min-width:577px) and (max-width:991px) {
+@media (min-width:769px) and (max-width:1000px) {
 
     /* nav區 */
     .nav_right {
