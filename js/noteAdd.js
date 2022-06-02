@@ -129,7 +129,7 @@ left_note_content[0].addEventListener('click',function(event){
   }else{
     note_group.style.textDecorationLine = 'none';
     note_check.style.backgroundImage = "";
-    note_check.style.backgroundColor = 'white';
+    note_check.style.backgroundColor = 'rgba(255, 255, 255, 0)';
   }
   }
 
