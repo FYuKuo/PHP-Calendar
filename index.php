@@ -10,9 +10,9 @@ if (isset($_GET['year']) && isset($_GET['month'])) {
   $year = date('Y');
 } elseif (isset($_GET['year']) && !isset($_GET['month'])) {
   $year = $_GET['year'];
-  $month = date('m');
+  $month = date('n');
 } else {
-  $month = date('m');
+  $month = date('n');
   $year = date('Y');
 }
 
@@ -38,7 +38,7 @@ for ($i = 0; $i < $firstDayWeek; $i++) {
 
 //月份所有日期
 for ($i = 0; $i < $monthDay; $i++) {
-  $date = date('Y-m-d', strtotime("+$i days", $firstDaySecond));
+  $date = date('Y-n-d', strtotime("+$i days", $firstDaySecond));
   $allDay[] = $date;
 }
 
@@ -51,7 +51,7 @@ for ($i = 0; $i < 6 - $lasttDayWeek; $i++) {
 $allMonth = ['1' => 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 //今天
-$today = date('Y-m-d');
+$today = date('Y-n-d');
 $todayWeek = date('l', strtotime($today)); //今天星期幾
 $todayFont = date('d', strtotime($today)); //今天的日
 
@@ -86,17 +86,24 @@ $todayFont = date('d', strtotime($today)); //今天的日
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- font awesome 引入結束 -->
 
-  <?php
-  if (isset($_POST['theme'])) {
-    $theme = $_POST['theme'];
-  }else {
-    $theme = 'colorful';
-  }
-
-  ?>
   <!-- css檔案引入 -->
-  <link rel="stylesheet" href="./css/<?=$theme?>.css">
-  
+  <?php
+  session_start();
+  if ($_SESSION['style'] == 'colorful' || empty($_SESSION['style'])) {
+  ?>
+    <link rel="stylesheet" href="./css/colorful.css">
+  <?php
+  } elseif ($_SESSION['style'] == 'BandW') {
+  ?>
+    <link rel="stylesheet" href="./css/BandW.css">
+  <?php
+  } elseif ($_SESSION['style'] == 'animal') {
+  ?>
+    <link rel="stylesheet" href="./css/animal.css">
+  <?php
+  }
+  ?>
+
   <style>
     /* 手機板在下方欄位加上月份顯示 */
     @media (max-width:576px) {
@@ -106,7 +113,13 @@ $todayFont = date('d', strtotime($today)); //今天的日
     }
   </style>
 </head>
-
+<?php
+if($_SESSION['style'] == 'animal'){
+?>
+<body style="background: url('./images/bg<?=$month?>.jpg') no-repeat;background-size: cover;background-position: center;">
+<?php
+}
+?>
 <body>
   <!-- 上選單 -->
   <div class="nav">
@@ -132,10 +145,10 @@ $todayFont = date('d', strtotime($today)); //今天的日
       <div class="nav_right_humBar_items_bg"></div>
 
       <div class="nav_right_humBar_items">
-        
+
         <div class="nav_theme">
-  
-          <form action="./index.php" method="post" id="themeForm">
+
+          <form action="./stylecss.php" method="post" id="themeForm">
             <select name="theme" id="themeSelect">
               <option>選擇主題</option>
               <option value="colorful">繽紛嘉年華</option>
@@ -143,15 +156,15 @@ $todayFont = date('d', strtotime($today)); //今天的日
               <option value="animal">動物遊樂園</option>
             </select>
           </form>
-  
+
         </div>
-  
+
         <div class="nav_today">
           <a href="./index.php" title="回到今天">TODAY</a>
         </div>
 
       </div>
-      
+
       <div class="nav_hamBar">
         <i class="fa-solid fa-bars"></i>
       </div>
