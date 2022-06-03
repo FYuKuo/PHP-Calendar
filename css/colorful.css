@@ -109,6 +109,7 @@ select>option {
     background-color: rgba(255, 255, 255, 0);
     cursor: pointer;
     font-size: 16px;
+    color: black;
 }
 
 #nav_bn:hover {
@@ -693,6 +694,10 @@ input[type=time] {
         height: 50px;
         line-height: 50px;
         border-bottom: 1px solid lightgrey;
+    }
+
+    #nav_bn {
+        color: black;
     }
 
     #themeSelect {
