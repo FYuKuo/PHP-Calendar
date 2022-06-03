@@ -86,10 +86,13 @@ $todayFont = date('d', strtotime($today)); //今天的日
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- font awesome 引入結束 -->
 
-  <!-- css檔案引入 -->
+  <!-- 外部css檔案引入 -->
+  <!-- 判斷主題的css -->
   <?php
   session_start();
-  if ($_SESSION['style'] == 'colorful' || empty($_SESSION['style'])) {
+  if(isset($_SESSION['style'])){
+
+  if ($_SESSION['style'] == 'colorful') {
   ?>
     <link rel="stylesheet" href="./css/colorful.css">
   <?php
@@ -101,8 +104,13 @@ $todayFont = date('d', strtotime($today)); //今天的日
   ?>
     <link rel="stylesheet" href="./css/animal.css">
   <?php
+  }}else{
+  ?>
+    <link rel="stylesheet" href="./css/colorful.css">
+  <?php
   }
   ?>
+  <!-- 外部css檔案引入結束 -->
 
   <style>
     /* 手機板在下方欄位加上月份顯示 */
@@ -113,22 +121,29 @@ $todayFont = date('d', strtotime($today)); //今天的日
     }
   </style>
 </head>
+<!-- 如果有選擇動物主題的 -->
 <?php
+if(isset($_SESSION['style'])){
 if ($_SESSION['style'] == 'animal') {
 ?>
-
   <body style="background: url('./images/bg<?= $month ?>.jpg') no-repeat;background-size: cover;background-position: center;">
   <?php
-}
+}else{
+  ?>
+<!-- 其他主題的 -->
+  <body>
+  <?php
+}}
   ?>
 
-  <body>
     <!-- 上選單 -->
     <div class="nav">
       <div class="nav_logo">
         <a href="./index.php">
+          <!-- 主題logo -->
           <?php
-          if ($_SESSION['style'] == 'colorful' || empty($_SESSION['style'])) {
+          if(isset($_SESSION['style'])){
+          if ($_SESSION['style'] == 'colorful') {
           ?>
             <img src="./images/logo2.png" alt="logo">
           <?php
@@ -139,6 +154,10 @@ if ($_SESSION['style'] == 'animal') {
           } elseif ($_SESSION['style'] == 'animal') {
           ?>
             <img src="./images/logo.png" alt="logo">
+          <?php
+          }}else{
+          ?>
+            <img src="./images/logo2.png" alt="logo">
           <?php
           }
           ?>
