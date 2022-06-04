@@ -64,7 +64,7 @@ $todayFont = date('d', strtotime($today)); //今天的日
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>萬年曆作業</title>
+  <title>FY's Calendar</title>
   <!-- goole字體引入 -->
   <!-- 英文字體 -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
