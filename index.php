@@ -90,22 +90,40 @@ $todayFont = date('d', strtotime($today)); //今天的日
   <!-- 判斷主題的css -->
   <?php
   session_start();
-  if(isset($_SESSION['style'])){
+  if (isset($_SESSION['style'])) {
 
-  if ($_SESSION['style'] == 'colorful') {
+    if ($_SESSION['style'] == 'colorful') {
   ?>
-    <link rel="stylesheet" href="./css/colorful.css">
-  <?php
-  } elseif ($_SESSION['style'] == 'BandW') {
-  ?>
-    <link rel="stylesheet" href="./css/BandW.css">
-  <?php
-  } elseif ($_SESSION['style'] == 'animal') {
-  ?>
-    <link rel="stylesheet" href="./css/animal.css">
-  <?php
-  }}else{
-  ?>
+      <link rel="stylesheet" href="./css/colorful.css">
+    <?php
+    } elseif ($_SESSION['style'] == 'BandW') {
+    ?>
+      <link rel="stylesheet" href="./css/BandW.css">
+    <?php
+    } elseif ($_SESSION['style'] == 'animal') {
+    ?>
+      <link rel="stylesheet" href="./css/animal.css">
+      <style>
+        body {
+          background: url('./images/bg<?= $month ?>.jpg');
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+
+        @media (max-width:768px){
+          body {
+          background: url('./images/mbg<?= $month ?>.jpg');
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+        }
+      </style>
+    <?php
+    }
+  } else {
+    ?>
     <link rel="stylesheet" href="./css/colorful.css">
   <?php
   }
@@ -121,30 +139,17 @@ $todayFont = date('d', strtotime($today)); //今天的日
     }
   </style>
 </head>
-<!-- 如果有選擇動物主題的 -->
-<?php
-if(isset($_SESSION['style'])){
-if ($_SESSION['style'] == 'animal') {
-?>
-  <body style="background: url('./images/bg<?= $month ?>.jpg') no-repeat;background-size: cover;background-position: center;">
-  <?php
-}else{
-  ?>
-<!-- 其他主題的 -->
-  <body>
-  <?php
-}}
-  ?>
 
-    <!-- 上選單 -->
-    <div class="nav">
-      <div class="nav_logo">
-        <a href="./index.php">
-          <!-- 主題logo -->
-          <?php
-          if(isset($_SESSION['style'])){
+<body>
+  <!-- 上選單 -->
+  <div class="nav">
+    <div class="nav_logo">
+      <a href="./index.php">
+        <!-- 主題logo -->
+        <?php
+        if (isset($_SESSION['style'])) {
           if ($_SESSION['style'] == 'colorful') {
-          ?>
+        ?>
             <img src="./images/logo2.png" alt="logo">
           <?php
           } elseif ($_SESSION['style'] == 'BandW') {
@@ -155,97 +160,98 @@ if ($_SESSION['style'] == 'animal') {
           ?>
             <img src="./images/logo.png" alt="logo">
           <?php
-          }}else{
-          ?>
-            <img src="./images/logo2.png" alt="logo">
-          <?php
           }
+        } else {
           ?>
-        </a>
-      </div>
-
-      <div class="nav_right">
-
-        <div class="nav_search">
-          <form action="./index.php" method="get" id="form_search">
-            <div class="form_bg"></div>
-            <div class="form_input">
-              <input type="text" name="year" id="nav_year" placeholder="西元年" required>
-              <input type="text" name="month" id="nav_month" placeholder="月份" required>
-            </div>
-            <button type="submit" id="nav_bn"><i class="fa-solid fa-magnifying-glass"></i></button>
-          </form>
-        </div>
-
-        <div class="nav_right_humBar_items_bg"></div>
-
-        <div class="nav_right_humBar_items">
-
-          <div class="nav_theme">
-
-            <form action="./stylecss.php" method="post" id="themeForm">
-              <select name="theme" id="themeSelect">
-                <option>選擇主題</option>
-                <option value="colorful">繽紛嘉年華</option>
-                <option value="BandW">黑白新世界</option>
-                <option value="animal">動物遊樂園</option>
-              </select>
-            </form>
-
-          </div>
-
-          <div class="nav_today">
-            <a href="./index.php" title="回到今天">TODAY</a>
-          </div>
-
-        </div>
-
-        <div class="nav_hamBar">
-          <i class="fa-solid fa-bars"></i>
-        </div>
-      </div>
-
+          <img src="./images/logo2.png" alt="logo">
+        <?php
+        }
+        ?>
+      </a>
     </div>
 
-    <!-- 整個月曆外框 -->
-    <div class="calendar">
+    <div class="nav_right">
 
-      <!-- 月曆的左半邊 -->
-      <div class="left">
-
-        <!-- 左半邊的上半部 -->
-        <div class="left_header">
-          <div class="left_header_bn" onclick="myFn()">
-            ⨁ 新增
+      <div class="nav_search">
+        <form action="./index.php" method="get" id="form_search">
+          <div class="form_bg"></div>
+          <div class="form_input">
+            <input type="text" name="year" id="nav_year" placeholder="西元年" required>
+            <input type="text" name="month" id="nav_month" placeholder="月份" required>
           </div>
+          <button type="submit" id="nav_bn"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+      </div>
+
+      <div class="nav_right_humBar_items_bg"></div>
+
+      <div class="nav_right_humBar_items">
+
+        <div class="nav_theme">
+
+          <form action="./stylecss.php" method="post" id="themeForm">
+            <select name="theme" id="themeSelect">
+              <option>選擇主題</option>
+              <option value="colorful">繽紛嘉年華</option>
+              <option value="BandW">黑白新世界</option>
+              <option value="animal">動物遊樂園</option>
+            </select>
+          </form>
+
         </div>
-        <!-- 左半邊的中間 -->
-        <div class="left_content">
 
-          <!-- 左半邊顯示日期的區塊 -->
-          <div class="con_date" id="con_date_id">
-            <?= $todayFont ?>
-          </div>
-
-
-          <!-- 左半邊顯示星期的區塊 -->
-          <div class="con_week" id="con_week_id">
-            <?= $todayWeek ?>
-          </div>
-
+        <div class="nav_today">
+          <a href="./index.php" title="回到今天">TODAY</a>
         </div>
-        <!-- 左半邊的下半部 -->
-        <div class="left_note">
-          <!-- 待辦區標題 -->
-          <div class="left_note_hd">
-            待辦事項
-          </div>
 
-          <!-- 待辦區整個框 -->
-          <div class="left_note_content">
+      </div>
 
-            <!-- 代辦區的群組 -->
-            <!-- <div class="left_note_list">
+      <div class="nav_hamBar">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 整個月曆外框 -->
+  <div class="calendar">
+
+    <!-- 月曆的左半邊 -->
+    <div class="left">
+
+      <!-- 左半邊的上半部 -->
+      <div class="left_header">
+        <div class="left_header_bn" onclick="myFn()">
+          ⨁ 新增
+        </div>
+      </div>
+      <!-- 左半邊的中間 -->
+      <div class="left_content">
+
+        <!-- 左半邊顯示日期的區塊 -->
+        <div class="con_date" id="con_date_id">
+          <?= $todayFont ?>
+        </div>
+
+
+        <!-- 左半邊顯示星期的區塊 -->
+        <div class="con_week" id="con_week_id">
+          <?= $todayWeek ?>
+        </div>
+
+      </div>
+      <!-- 左半邊的下半部 -->
+      <div class="left_note">
+        <!-- 待辦區標題 -->
+        <div class="left_note_hd">
+          待辦事項
+        </div>
+
+        <!-- 待辦區整個框 -->
+        <div class="left_note_content">
+
+          <!-- 代辦區的群組 -->
+          <!-- <div class="left_note_list">
 
             <div class="left_note_choose">
               <div class="left_note_check">
@@ -270,148 +276,148 @@ if ($_SESSION['style'] == 'animal') {
 
             </div>
           </div> -->
-            <!-- 代辦區的群組 -->
+          <!-- 代辦區的群組 -->
 
-          </div>
         </div>
       </div>
-      <!-- 月曆的左半邊結束 -->
+    </div>
+    <!-- 月曆的左半邊結束 -->
 
-      <!-- 月曆的右半邊 -->
-      <div class="right">
+    <!-- 月曆的右半邊 -->
+    <div class="right">
 
-        <!-- 格子區 -->
-        <div class="table">
+      <!-- 格子區 -->
+      <div class="table">
 
-          <!-- 格子區的最上面 選擇年分 -->
-          <div class="header_year">
+        <!-- 格子區的最上面 選擇年分 -->
+        <div class="header_year">
 
-            <!-- 前一年 -->
-            <div class="year-page">
-              <a href="./index.php?year=<?= $lastYear ?>&month=<?= $month ?>">◀</a>
-            </div>
-
-            <!-- 今年 -->
-            <div class="year" id="yearNow">
-              <?= $year ?>
-            </div>
-
-            <!-- 下一年 -->
-            <div class="year-page">
-              <a href="./index.php?year=<?= $nextYear ?>&month=<?= $month ?>">▶</a>
-            </div>
+          <!-- 前一年 -->
+          <div class="year-page">
+            <a href="./index.php?year=<?= $lastYear ?>&month=<?= $month ?>">◀</a>
           </div>
 
-          <!-- 格子區選擇月份 -->
-          <div class="header_month">
-            <?php
-
-            //印出所有月份的英文
-            foreach ($allMonth as $monthNumbr => $months) {
-
-              //檢查是不是參數目前月份 是的話就在div放上class改顏色
-              $checkmonth = "";
-              if ($monthFont == $months) {
-                $checkmonth = "thisMonth";
-              }
-
-              echo "<div><a class='$checkmonth' href='./index.php?year=$year&month=$monthNumbr'>{$months}</a></div>";
-            }
-            ?>
+          <!-- 今年 -->
+          <div class="year" id="yearNow">
+            <?= $year ?>
           </div>
 
-          <!-- 格子區的星期 -->
-          <div class="weekDay">
-            <div class="weekend">SUN</div>
-            <div class="workDay">MON</div>
-            <div class="workDay">TUE</div>
-            <div class="workDay">WED</div>
-            <div class="workDay">THU</div>
-            <div class="workDay">FRI</div>
-            <div class="weekend">SAT</div>
+          <!-- 下一年 -->
+          <div class="year-page">
+            <a href="./index.php?year=<?= $nextYear ?>&month=<?= $month ?>">▶</a>
           </div>
+        </div>
 
-          <!-- 日期區 -->
+        <!-- 格子區選擇月份 -->
+        <div class="header_month">
           <?php
-          //利用foreach迴圈印出所有天數
-          foreach ($allDay as $day) {
 
-            //檢查是不是今天
-            $checktoday = "";
-            if ($day == $today) {
-              $checktoday = "today";
+          //印出所有月份的英文
+          foreach ($allMonth as $monthNumbr => $months) {
+
+            //檢查是不是參數目前月份 是的話就在div放上class改顏色
+            $checkmonth = "";
+            if ($monthFont == $months) {
+              $checkmonth = "thisMonth";
             }
 
-            //如果day裡面不是空的就轉換日期格式為'天'
-            if (!empty($day)) {
-
-              $dateFont = date('d', strtotime($day));
-              echo "<div class='dateTd'><div class='dateBG $checktoday'>{$dateFont}</div></div>";
-            } else {
-              echo "<div class='dateTd'></div>";
-            }
+            echo "<div><a class='$checkmonth' href='./index.php?year=$year&month=$monthNumbr'>{$months}</a></div>";
           }
           ?>
-
         </div>
-      </div>
-    </div>
-    <!-- 月曆的右半邊結束 -->
 
-    <!-- 頁尾區 -->
-    <div class="footer">
-      &copy; <?= date('Y') ?> FY
-    </div>
-    <!-- 頁尾區結束 -->
-
-    <!-- 新增待辦清單區 先隱藏起來 -->
-    <div class="noteFormBG">
-      <div class="noteAddBG">
-      </div>
-      <div class="noteFormFlex">
-        <div class="noteForm">
-          <div class="noteClose" onclick="myClose()">
-            ⨂
-          </div>
-          <div class="noteFormHd">
-            新增待辦事項
-          </div>
-          <form action="./index.php" method="post" id="myFrom">
-            <div class="formText">
-              <input type="text" name="noteTitle" id="noteTitle" placeholder="標題" required>
-              <textarea name="noteText" id="noteText" cols="30" rows="10" placeholder="備註"></textarea>
-            </div>
-            <input type="time" name="noteTime" id="noteTime" value="00:00">
-            <button type="submit" id="formBn">儲存</button>
-          </form>
+        <!-- 格子區的星期 -->
+        <div class="weekDay">
+          <div class="weekend">SUN</div>
+          <div class="workDay">MON</div>
+          <div class="workDay">TUE</div>
+          <div class="workDay">WED</div>
+          <div class="workDay">THU</div>
+          <div class="workDay">FRI</div>
+          <div class="weekend">SAT</div>
         </div>
+
+        <!-- 日期區 -->
+        <?php
+        //利用foreach迴圈印出所有天數
+        foreach ($allDay as $day) {
+
+          //檢查是不是今天
+          $checktoday = "";
+          if ($day == $today) {
+            $checktoday = "today";
+          }
+
+          //如果day裡面不是空的就轉換日期格式為'天'
+          if (!empty($day)) {
+
+            $dateFont = date('d', strtotime($day));
+            echo "<div class='dateTd'><div class='dateBG $checktoday'>{$dateFont}</div></div>";
+          } else {
+            echo "<div class='dateTd'></div>";
+          }
+        }
+        ?>
+
       </div>
     </div>
-    <!-- 新增待辦清單區結束 先隱藏起來 -->
+  </div>
+  <!-- 月曆的右半邊結束 -->
 
-    <!-- 點日期的js -->
-    <script src="./js/date.js"></script>
+  <!-- 頁尾區 -->
+  <div class="footer">
+    &copy; <?= date('Y') ?> FY
+  </div>
+  <!-- 頁尾區結束 -->
 
-    <!-- 打開新增待辦清單的js -->
-    <script src="./js/noteForm.js"></script>
+  <!-- 新增待辦清單區 先隱藏起來 -->
+  <div class="noteFormBG">
+    <div class="noteAddBG">
+    </div>
+    <div class="noteFormFlex">
+      <div class="noteForm">
+        <div class="noteClose" onclick="myClose()">
+          ⨂
+        </div>
+        <div class="noteFormHd">
+          新增待辦事項
+        </div>
+        <form action="./index.php" method="post" id="myFrom">
+          <div class="formText">
+            <input type="text" name="noteTitle" id="noteTitle" placeholder="標題" required>
+            <textarea name="noteText" id="noteText" cols="30" rows="10" placeholder="備註"></textarea>
+          </div>
+          <input type="time" name="noteTime" id="noteTime" value="00:00">
+          <button type="submit" id="formBn">儲存</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- 新增待辦清單區結束 先隱藏起來 -->
 
-    <!-- 加入&刪除待辦清單的js -->
-    <script src="./js/noteAdd.js"></script>
+  <!-- 點日期的js -->
+  <script src="./js/date.js"></script>
 
-    <!-- 搜尋按鈕的js -->
-    <script src="./js/searchForm.js"></script>
+  <!-- 打開新增待辦清單的js -->
+  <script src="./js/noteForm.js"></script>
 
-    <!-- 側邊選單的js -->
-    <script src="./js/nav.js"></script>
+  <!-- 加入&刪除待辦清單的js -->
+  <script src="./js/noteAdd.js"></script>
 
-    <!-- 送出表單的js -->
-    <script src="./js/submit.js"></script>
+  <!-- 搜尋按鈕的js -->
+  <script src="./js/searchForm.js"></script>
 
-    <!-- 關閉重新提交表單 -->
-    <script>
-      window.history.replaceState(null, null, window.location.href);
-    </script>
+  <!-- 側邊選單的js -->
+  <script src="./js/nav.js"></script>
+
+  <!-- 送出表單的js -->
+  <script src="./js/submit.js"></script>
+
+  <!-- 關閉重新提交表單 -->
+  <script>
+    window.history.replaceState(null, null, window.location.href);
+  </script>
 
 
-  </body>
-  <html>
+</body>
+<html>
